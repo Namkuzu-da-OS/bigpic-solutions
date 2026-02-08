@@ -5,38 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BigPic Solutions — Investment Research & Market Intelligence</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
   --bg-deep: #0a0f1a;
-  --bg-card: rgba(12, 20, 35, 0.88);
-  --bg-card-hover: rgba(16, 28, 50, 0.92);
+  --bg-card: rgba(18, 26, 46, 0.88);
+  --bg-card-hover: rgba(26, 39, 68, 0.92);
   --bg-glass: rgba(255,255,255,0.03);
-  --border-subtle: rgba(255,255,255,0.06);
-  --border-glow: rgba(16,185,129,0.18);
-  --text-primary: #e2e8f0;
-  --text-secondary: #8a96ad;
-  --text-muted: #4b5568;
-  --accent-green: #10b981;
-  --accent-cyan: #22d3ee;
-  --accent-amber: #f59e0b;
-  --accent-violet: #8b5cf6;
+  --border-subtle: rgba(232,184,125,0.08);
+  --border-glow: rgba(232,184,125,0.18);
+  --text-primary: #fdf6ec;
+  --text-secondary: #c9d6df;
+  --text-muted: #6b7d8e;
+  --accent-gold: #e8b87d;
+  --accent-amber: #f4a261;
+  --accent-coral: #ef8354;
   --accent-rose: #f43f5e;
   --accent-blue: #3b82f6;
-  --glow-green: 0 0 30px rgba(16,185,129,0.15);
+  --glow-gold: 0 0 30px rgba(232,184,125,0.15);
   --radius: 12px;
   --radius-lg: 20px;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Newsreader', Georgia, serif;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent-green) var(--bg-deep); }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent-gold) var(--bg-deep); }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: var(--accent-green); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 3px; }
 
 body {
   font-family: var(--font-sans);
@@ -71,7 +70,7 @@ body {
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232,184,125,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -81,13 +80,14 @@ body {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero .subtitle {
+  font-family: var(--font-mono);
   font-size: 1.2rem;
   color: var(--text-secondary);
   max-width: 600px;
@@ -114,6 +114,7 @@ body {
 }
 
 .section-header p {
+  font-family: var(--font-mono);
   color: var(--text-secondary);
   font-size: 1rem;
 }
@@ -139,7 +140,7 @@ body {
 .sector-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-glow);
-  box-shadow: var(--glow-green);
+  box-shadow: var(--glow-gold);
   transform: translateY(-2px);
 }
 
@@ -157,6 +158,7 @@ body {
 }
 
 .sector-card .description {
+  font-family: var(--font-mono);
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 20px;
@@ -170,30 +172,30 @@ body {
 }
 
 .sector-card .links a {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--accent-green);
+  color: var(--accent-gold);
   text-decoration: none;
   padding: 6px 14px;
-  border: 1px solid rgba(16,185,129,0.25);
+  border: 1px solid rgba(232,184,125,0.25);
   border-radius: 8px;
   transition: var(--transition);
 }
 
 .sector-card .links a:hover {
-  background: rgba(16,185,129,0.1);
-  border-color: var(--accent-green);
+  background: rgba(232,184,125,0.1);
+  border-color: var(--accent-gold);
 }
 
 .sector-card .links a.report {
-  color: var(--accent-cyan);
-  border-color: rgba(34,211,238,0.25);
+  color: var(--accent-amber);
+  border-color: rgba(244,162,97,0.25);
 }
 
 .sector-card .links a.report:hover {
-  background: rgba(34,211,238,0.1);
-  border-color: var(--accent-cyan);
+  background: rgba(244,162,97,0.1);
+  border-color: var(--accent-amber);
 }
 
 /* REPORTS SECTION */
@@ -214,13 +216,13 @@ body {
 
 .report-card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(245,158,11,0.25);
-  box-shadow: 0 0 30px rgba(245,158,11,0.1);
+  border-color: rgba(239,131,84,0.25);
+  box-shadow: 0 0 30px rgba(239,131,84,0.1);
   transform: translateY(-2px);
 }
 
 .report-card .badge {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -232,15 +234,15 @@ body {
 }
 
 .report-card .badge.weekly {
-  color: var(--accent-amber);
-  background: rgba(245,158,11,0.1);
-  border: 1px solid rgba(245,158,11,0.2);
+  color: var(--accent-coral);
+  background: rgba(239,131,84,0.1);
+  border: 1px solid rgba(239,131,84,0.2);
 }
 
 .report-card .badge.daily {
-  color: var(--accent-violet);
-  background: rgba(139,92,246,0.1);
-  border: 1px solid rgba(139,92,246,0.2);
+  color: var(--accent-amber);
+  background: rgba(244,162,97,0.1);
+  border: 1px solid rgba(244,162,97,0.2);
 }
 
 .report-card h3 {
@@ -250,26 +252,27 @@ body {
 }
 
 .report-card .description {
+  font-family: var(--font-mono);
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 16px;
 }
 
 .report-card .links a {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--accent-amber);
+  color: var(--accent-coral);
   text-decoration: none;
   padding: 6px 14px;
-  border: 1px solid rgba(245,158,11,0.25);
+  border: 1px solid rgba(239,131,84,0.25);
   border-radius: 8px;
   transition: var(--transition);
 }
 
 .report-card .links a:hover {
-  background: rgba(245,158,11,0.1);
-  border-color: var(--accent-amber);
+  background: rgba(239,131,84,0.1);
+  border-color: var(--accent-coral);
 }
 
 /* FOOTER */
@@ -283,7 +286,7 @@ footer {
 }
 
 footer a {
-  color: var(--accent-green);
+  color: var(--accent-gold);
   text-decoration: none;
 }
 
