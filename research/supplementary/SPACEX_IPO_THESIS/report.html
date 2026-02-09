@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpaceX IPO — Complete Investment Thesis 2026 | BigPic Solutions</title>
+<meta name="description" content="SpaceX IPO investment thesis: $1.5T valuation, mid-June 2026. Starlink, launch services, xAI merger analysis, bear/bull cases, and optimal strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg-deep: #06080d;
+  --bg-card: rgba(12, 17, 30, 0.85);
+  --bg-card-hover: rgba(18, 25, 45, 0.92);
+  --bg-glass: rgba(255,255,255,0.03);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-glow: rgba(249,115,22,0.25);
+  --text-primary: #e8ecf4;
+  --text-secondary: #8a94a8;
+  --text-muted: #505a6e;
+  --flame: #f97316;
+  --flame-bright: #fb923c;
+  --ember: #ef4444;
+  --ember-dark: #dc2626;
+  --cyan: #22d3ee;
+  --cyan-dim: rgba(34,211,238,0.7);
+  --thrust-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-violet: #8b5cf6;
+  --accent-lime: #84cc16;
+  --accent-amber: #f59e0b;
+  --glow-flame: 0 0 30px rgba(249,115,22,0.15);
+  --glow-cyan: 0 0 30px rgba(34,211,238,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding-top: 52px;
+}
+
+/* ═══════════════ NAV ═══════════════ */
+.bigpic-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(6, 8, 13, 0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(249,115,22,0.08);
+  padding: 0 24px; height: 52px;
+  display: flex; align-items: center;
+  font-family: var(--font-heading);
+}
+.bigpic-nav a { text-decoration: none; }
+.bigpic-nav .nav-brand {
+  font-weight: 700; font-size: 1rem;
+  background: linear-gradient(135deg, #fdf6ec, #e8b87d);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-right: 32px;
+}
+.bigpic-nav .nav-links { display: flex; align-items: center; gap: 4px; }
+.bigpic-nav .nav-link {
+  color: #c9d6df; font-size: 0.82rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 6px; transition: 0.2s ease;
+}
+.bigpic-nav .nav-link:hover { color: #fdf6ec; background: rgba(255,255,255,0.05); }
+.bigpic-nav .nav-link.active { color: #e8b87d; }
+.bigpic-nav .nav-dropdown { position: relative; }
+.bigpic-nav .nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: rgba(6, 8, 13, 0.96); backdrop-filter: blur(12px);
+  border: 1px solid rgba(249,115,22,0.1); border-radius: 10px;
+  padding: 6px; min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+.bigpic-nav .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.bigpic-nav .nav-dropdown-menu a {
+  display: block; color: #c9d6df; font-size: 0.82rem;
+  padding: 8px 12px; border-radius: 6px; transition: 0.2s ease;
+}
+.bigpic-nav .nav-dropdown-menu a:hover { color: #fdf6ec; background: rgba(255,255,255,0.05); }
+.bigpic-nav .nav-dropdown-menu a.active { color: #e8b87d; }
+
+/* ═══════════════ STARFIELD ═══════════════ */
+canvas#starfield {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%; z-index: 0;
+  pointer-events: none;
+}
+
+/* ═══════════════ LAYOUT ═══════════════ */
+.content-wrap { position: relative; z-index: 1; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+section + section { border-top: 1px solid var(--border-subtle); }
+
+/* ═══════════════ HERO ═══════════════ */
+.hero {
+  min-height: calc(100vh - 52px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; position: relative;
+  padding: 60px 24px;
+}
+.hero-overline {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--flame); margin-bottom: 24px;
+}
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.05; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--flame) 0%, #fff 45%, var(--cyan) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-family: var(--font-body); font-size: 1.15rem;
+  color: var(--text-secondary); margin-bottom: 48px;
+  font-weight: 400;
+}
+
+/* Countdown */
+.countdown {
+  display: flex; gap: 6px; margin-bottom: 48px;
+  font-family: var(--font-mono);
+}
+.countdown-unit {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius); padding: 16px 20px;
+  min-width: 80px; text-align: center;
+}
+.countdown-val {
+  font-size: 2rem; font-weight: 700;
+  color: var(--flame); line-height: 1;
+}
+.countdown-label {
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Hero stat strip */
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 1px;
+  background: rgba(249,115,22,0.12); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: 48px;
+}
+.hero-stat {
+  background: var(--bg-card); padding: 20px 28px;
+  flex: 1; min-width: 180px; text-align: center;
+}
+.hero-stat-val {
+  font-family: var(--font-mono); font-size: 1.3rem;
+  font-weight: 700; color: var(--flame-bright);
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+}
+
+.scroll-hint {
+  position: absolute; bottom: 32px;
+  color: var(--text-muted); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  font-family: var(--font-mono);
+  animation: pulse-down 2s ease-in-out infinite;
+}
+@keyframes pulse-down {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ═══════════════ SECTION HEADERS ═══════════════ */
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px;
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: 3px; color: var(--flame);
+  margin-bottom: 16px;
+}
+.section-label::before { content: ''; width: 24px; height: 2px; background: var(--flame); }
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800; letter-spacing: -0.02em;
+  margin-bottom: 12px; line-height: 1.15;
+}
+.section-desc {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 640px; margin-bottom: 40px; line-height: 1.7;
+}
+
+/* ═══════════════ CARDS ═══════════════ */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin: 32px 0; }
+.card-grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin: 32px 0; }
+.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+
+.card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 24px;
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: var(--border-glow); transform: translateY(-2px);
+  box-shadow: var(--glow-flame);
+}
+.card-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--flame); margin-bottom: 10px;
+}
+.card h3 {
+  font-family: var(--font-heading); font-size: 1.15rem;
+  font-weight: 700; margin-bottom: 10px; line-height: 1.3;
+}
+.card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* Special cards */
+.card-highlight {
+  border-color: var(--flame);
+  background: linear-gradient(135deg, rgba(249,115,22,0.08), var(--bg-card));
+}
+.card-merger {
+  border-color: var(--cyan);
+  background: linear-gradient(135deg, rgba(34,211,238,0.06), var(--bg-card));
+  grid-column: 1 / -1;
+}
+.card-warn {
+  border-color: var(--ember);
+  background: linear-gradient(135deg, rgba(239,68,68,0.06), var(--bg-card));
+}
+
+/* ═══════════════ METRIC STRIP ═══════════════ */
+.metric-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px; background: rgba(249,115,22,0.15);
+  border-radius: var(--radius); overflow: hidden; margin: 32px 0;
+}
+.metric-cell {
+  background: var(--bg-card); padding: 20px; text-align: center;
+}
+.metric-val {
+  font-family: var(--font-mono); font-size: 1.6rem;
+  font-weight: 700; line-height: 1.1;
+}
+.metric-val.flame { color: var(--flame); }
+.metric-val.cyan { color: var(--cyan); }
+.metric-val.green { color: var(--accent-green); }
+.metric-val.blue { color: var(--thrust-blue); }
+.metric-val.ember { color: var(--ember); }
+.metric-val.amber { color: var(--accent-amber); }
+.metric-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 6px;
+}
+.metric-context { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ═══════════════ CHARTS ═══════════════ */
+.chart-panel {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 24px; margin: 32px 0;
+}
+.chart-panel-title {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--flame); margin-bottom: 4px;
+}
+.chart-panel-subtitle {
+  font-family: var(--font-heading); font-size: 1rem;
+  font-weight: 600; color: var(--text-primary); margin-bottom: 20px;
+}
+.chart-canvas-wrap { position: relative; height: 320px; }
+.chart-duo {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin: 32px 0;
+}
+.chart-duo .chart-panel { margin: 0; }
+
+/* ═══════════════ LEDGER TABLE ═══════════════ */
+.ledger-wrap {
+  margin: 32px 0; overflow-x: auto;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+.ledger {
+  width: 100%; border-collapse: collapse; font-size: 13px;
+}
+.ledger caption {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase;
+  text-align: left; color: var(--text-muted);
+  padding: 16px 16px 8px;
+}
+.ledger th {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); padding: 8px 14px;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  text-align: left; font-weight: 500;
+}
+.ledger td {
+  padding: 9px 14px; border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--text-secondary);
+}
+.ledger tr:hover td { background: rgba(255,255,255,0.02); }
+.ledger .row-label { font-family: var(--font-body); font-weight: 600; color: var(--text-primary); font-size: 13px; }
+.ledger .num-flame { color: var(--flame); font-weight: 600; }
+.ledger .num-cyan { color: var(--cyan); font-weight: 600; }
+.ledger .num-green { color: var(--accent-green); font-weight: 600; }
+.ledger .num-ember { color: var(--ember); font-weight: 600; }
+.ledger .num-blue { color: var(--thrust-blue); font-weight: 600; }
+
+/* ═══════════════ PULLQUOTE ═══════════════ */
+.pullquote {
+  margin: 40px 0; padding: 28px 0;
+  border-top: 3px solid var(--flame);
+  border-bottom: 3px solid var(--flame);
+  text-align: center;
+}
+.pullquote blockquote {
+  font-family: var(--font-heading); font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 600; line-height: 1.45;
+  color: var(--text-primary); max-width: 720px;
+  margin: 0 auto 12px;
+}
+.pullquote cite {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted); font-style: normal;
+}
+
+/* ═══════════════ ANALYST NOTE ═══════════════ */
+.analyst-note {
+  background: rgba(249,115,22,0.06);
+  border-left: 3px solid var(--flame);
+  padding: 16px 20px; margin: 24px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  position: relative;
+}
+.analyst-note.warn {
+  background: rgba(239,68,68,0.06);
+  border-left-color: var(--ember);
+}
+.analyst-note p {
+  font-family: var(--font-mono); font-size: 12px;
+  font-weight: 500; color: var(--text-secondary); line-height: 1.7;
+}
+.analyst-note strong { color: var(--flame); }
+.analyst-note.warn strong { color: var(--ember); }
+
+/* ═══════════════ COMPANY CARDS (Watchlist) ═══════════════ */
+.company-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 24px;
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.company-card::after {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%; border-radius: 4px 0 0 4px;
+}
+.company-card.tier-1::after { background: var(--accent-green); }
+.company-card.tier-2::after { background: var(--thrust-blue); }
+.company-card.tier-3::after { background: var(--flame); }
+.company-card.tier-loser::after { background: var(--ember); }
+.company-card:hover {
+  border-color: var(--border-glow); transform: translateY(-3px);
+  box-shadow: var(--glow-flame);
+}
+.company-card .ticker {
+  font-family: var(--font-mono); font-size: 1.1rem;
+  font-weight: 700; color: var(--cyan);
+}
+.company-card .company-name {
+  font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+}
+.company-card .card-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 12px;
+}
+.tier-badge {
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 20px; font-weight: 600;
+}
+.tier-badge.t1 { background: rgba(16,185,129,0.15); color: var(--accent-green); }
+.tier-badge.t2 { background: rgba(59,130,246,0.15); color: var(--thrust-blue); }
+.tier-badge.t3 { background: rgba(249,115,22,0.15); color: var(--flame); }
+.tier-badge.loser { background: rgba(239,68,68,0.15); color: var(--ember); }
+.company-card .thesis {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* ═══════════════ TIMELINE ═══════════════ */
+.timeline { position: relative; padding-left: 40px; margin: 32px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 14px; top: 0;
+  width: 2px; height: 100%;
+  background: linear-gradient(to bottom, var(--flame), var(--cyan), var(--accent-green));
+}
+.timeline-item {
+  position: relative; margin-bottom: 24px; padding: 16px 20px;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius); transition: var(--transition);
+}
+.timeline-item:hover { border-color: var(--border-glow); }
+.timeline-item::before {
+  content: ''; position: absolute; left: -34px; top: 20px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--bg-deep);
+}
+.timeline-item.success::before { background: var(--accent-green); }
+.timeline-item.partial::before { background: var(--accent-amber); }
+.timeline-item.failure::before { background: var(--ember); }
+.timeline-item.future::before { background: var(--thrust-blue); border-style: dashed; }
+.timeline-date {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); letter-spacing: 1px;
+}
+.timeline-title {
+  font-family: var(--font-heading); font-size: 1rem;
+  font-weight: 700; margin: 4px 0;
+}
+.timeline-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* ═══════════════ RISK CARDS ═══════════════ */
+.risk-card {
+  background: var(--bg-card); border: 1px solid rgba(239,68,68,0.15);
+  border-radius: var(--radius-lg); padding: 24px;
+  position: relative; overflow: hidden;
+  transition: var(--transition);
+}
+.risk-card:hover { border-color: rgba(239,68,68,0.3); }
+.risk-num {
+  font-family: var(--font-mono); font-size: 2.5rem;
+  font-weight: 800; color: rgba(239,68,68,0.12);
+  position: absolute; top: 12px; right: 16px;
+}
+.risk-title {
+  font-family: var(--font-heading); font-size: 1rem;
+  font-weight: 700; color: var(--ember); margin-bottom: 8px;
+}
+.risk-severity {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.severity-dots { display: flex; gap: 3px; }
+.severity-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(239,68,68,0.2);
+}
+.severity-dot.filled { background: var(--ember); }
+.risk-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ═══════════════ VERDICT STRIP ═══════════════ */
+.verdict-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 4px solid var(--flame);
+  border-bottom: 4px solid var(--flame);
+  margin: 48px 0;
+}
+.verdict-col {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border-subtle);
+}
+.verdict-col:last-child { border-right: none; }
+.verdict-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;
+}
+.verdict-tag.bear { color: var(--ember); }
+.verdict-tag.base { color: var(--flame); }
+.verdict-tag.bull { color: var(--accent-green); }
+.verdict-col h3 {
+  font-family: var(--font-heading); font-size: 1.15rem;
+  font-weight: 700; margin-bottom: 10px; line-height: 1.25;
+}
+.verdict-col p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ═══════════════ PLAYBOOK ═══════════════ */
+.playbook-phase {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 28px; margin: 20px 0;
+}
+.phase-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--flame); margin-bottom: 8px;
+}
+.playbook-phase h3 {
+  font-family: var(--font-heading); font-size: 1.2rem;
+  font-weight: 700; margin-bottom: 16px;
+}
+.step {
+  display: flex; gap: 14px; margin-bottom: 14px;
+  align-items: flex-start;
+}
+.step-num {
+  font-family: var(--font-mono); font-size: 11px;
+  font-weight: 700; color: var(--flame);
+  background: rgba(249,115,22,0.1);
+  min-width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+.step strong { color: var(--text-primary); }
+
+/* ═══════════════ CONSTELLATION DIAGRAM ═══════════════ */
+.constellation {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; margin: 40px 0; padding: 40px 24px;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+.constellation-tier {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center;
+}
+.constellation-node {
+  font-family: var(--font-mono); font-size: 12px;
+  padding: 10px 18px; border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  text-align: center; transition: var(--transition);
+}
+.constellation-node:hover { border-color: var(--border-glow); }
+.constellation-node.primary {
+  background: rgba(249,115,22,0.1); border-color: var(--flame);
+  font-size: 14px; font-weight: 700; color: var(--flame);
+}
+.constellation-node.secondary {
+  background: rgba(34,211,238,0.06); border-color: rgba(34,211,238,0.2);
+  color: var(--cyan);
+}
+.constellation-node.tertiary {
+  background: var(--bg-glass); color: var(--text-secondary);
+}
+.constellation-connector {
+  width: 2px; height: 24px;
+  background: linear-gradient(to bottom, var(--flame), var(--cyan));
+}
+.constellation-branch {
+  width: 120px; height: 2px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ═══════════════ DISCLAIMER ═══════════════ */
+.disclaimer {
+  text-align: center; padding: 48px 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+.disclaimer p {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); max-width: 640px;
+  margin: 0 auto; line-height: 1.7;
+}
+
+/* ═══════════════ REVEAL ═══════════════ */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 768px) {
+  .hero-title { font-size: clamp(2.2rem, 10vw, 4rem); }
+  .countdown { flex-wrap: wrap; justify-content: center; }
+  .countdown-unit { min-width: 64px; padding: 12px 14px; }
+  .countdown-val { font-size: 1.5rem; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat { min-width: auto; }
+  .card-grid, .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+  .chart-duo { grid-template-columns: 1fr; }
+  .verdict-strip { grid-template-columns: 1fr; }
+  .verdict-col { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+  .verdict-col:last-child { border-bottom: none; }
+  .metric-strip { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 48px 0; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section-title { font-size: 1.6rem; }
+  .metric-strip { grid-template-columns: 1fr; }
+  .timeline { padding-left: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="bigpic-nav">
+  <a href="../../../index.html" class="nav-brand">BigPic Solutions</a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a class="nav-link active" href="#">Markets &#9662;</a>
+      <div class="nav-dropdown-menu">
+        <a href="../../../research/ai/report.html">AI Infrastructure</a>
+        <a href="../../../research/nuclear/report.html">Nuclear Energy</a>
+        <a href="../../../research/space/report.html">Space</a>
+        <a href="../../../research/quantum/report.html">Quantum Computing</a>
+        <a href="../../../research/robotics/report.html">Robotics &amp; Automation</a>
+        <a href="../../../research/cybersecurity/report.html">Cybersecurity</a>
+        <a href="../../../research/critical-minerals/report.html">Critical Minerals</a>
+        <a href="../../../research/defense/report.html">Defense &amp; Aerospace</a>
+        <a href="../../../research/energy-storage/report.html">Energy Storage</a>
+      </div>
+    </div>
+    <a class="nav-link" href="../../../eagle-eye/W06_2026-02-09/report.html">Eagle Eye</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ STARFIELD ═══════════════ -->
+<canvas id="starfield"></canvas>
+
+<div class="content-wrap">
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-overline">Complete Investment Thesis &mdash; February 2026</div>
+  <h1 class="hero-title">SpaceX IPO</h1>
+  <p class="hero-subtitle">11-Agent Deep Research &bull; The Largest IPO in History</p>
+
+  <div class="countdown" id="countdown">
+    <div class="countdown-unit"><div class="countdown-val" id="cd-days">--</div><div class="countdown-label">Days</div></div>
+    <div class="countdown-unit"><div class="countdown-val" id="cd-hours">--</div><div class="countdown-label">Hours</div></div>
+    <div class="countdown-unit"><div class="countdown-val" id="cd-mins">--</div><div class="countdown-label">Minutes</div></div>
+    <div class="countdown-unit"><div class="countdown-val" id="cd-secs">--</div><div class="countdown-label">Seconds</div></div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-val">$1.5T</div>
+      <div class="hero-stat-label">Target Valuation</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">$30-50B</div>
+      <div class="hero-stat-label">Capital Raise</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">9M+</div>
+      <div class="hero-stat-label">Starlink Subscribers</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">$22B+</div>
+      <div class="hero-stat-label">Gov Contracts</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll to explore &#8595;</div>
+</section>
+
+<!-- ═══════════════ PART 1: THE DEAL ═══════════════ -->
+<section id="deal">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 1</div>
+      <h2 class="section-title">The Deal</h2>
+      <p class="section-desc">SpaceX is targeting a traditional underwritten IPO at ~$1.5 trillion &mdash; the largest in history, surpassing Saudi Aramco's $25.6B raise.</p>
+    </div>
+
+    <div class="card-grid-2 reveal">
+      <div class="card">
+        <div class="card-label">IPO Structure</div>
+        <h3>Traditional Underwritten IPO</h3>
+        <p>Mid-June 2026 target. Dual-class shares with Musk holding ~42% equity and ~79% voting control. Goldman Sachs, JPMorgan, Morgan Stanley, and Bank of America underwriting.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Capital Raise</div>
+        <h3>$30-50 Billion</h3>
+        <p>Largest IPO ever if achieved. S-1 not yet filed; quiet period imposed Dec 17, 2025. Expected filing April-May 2026. Exchange likely NYSE or Nasdaq.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;margin:40px 0 20px;">What You're Buying</h3>
+    </div>
+    <div class="card-grid reveal">
+      <div class="card card-highlight">
+        <div class="card-label">69-79% of Revenue</div>
+        <h3>Starlink</h3>
+        <p>Satellite internet. 9M+ subscribers, 125+ countries, 9,400+ satellites. Growing 80% YoY. The crown jewel.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Launch Services</div>
+        <h3>Falcon 9 / Heavy / Starship</h3>
+        <p>82% global commercial launch share. 167 launches in 2025. Reusability moat that no competitor can match.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Military</div>
+        <h3>Starshield / MILNET</h3>
+        <p>Classified spy satellites, 480+ military LEO satellites, $13B potential program value. Pentagon's default provider.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">AI Subsidiary</div>
+        <h3>xAI / Grok</h3>
+        <p>AI models, Colossus supercomputer (555K+ GPUs). Acquired Feb 2026. ~$500M revenue, burning $1B/month.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sub-Subsidiary</div>
+        <h3>X (Twitter)</h3>
+        <p>Social media platform via xAI. 500M+ MAU. Training data firehose for Grok. Musk holds ~42% equity in X.</p>
+      </div>
+    </div>
+
+    <div class="card card-merger reveal">
+      <div class="card-label" style="color:var(--cyan);">Largest Merger in History</div>
+      <h3>xAI Acquisition &mdash; February 2, 2026</h3>
+      <p>$1T (SpaceX) + $250B (xAI) = $1.25T combined entity. All-stock deal. Rationale: "orbital data centers" combining SpaceX launch/satellites with xAI compute. xAI was burning $1B/month with only ~$500M/year revenue &mdash; it needed SpaceX's capital access.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 2: THE FINANCIALS ═══════════════ -->
+<section id="financials">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 2</div>
+      <h2 class="section-title">The Financials</h2>
+      <p class="section-desc">$15-16B revenue in 2025 with $8B EBITDA. Starlink drives essentially all growth at 80% YoY vs. 9% for launch services.</p>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit A</div>
+      <div class="chart-panel-subtitle">Revenue Breakdown by Year ($B)</div>
+      <div class="chart-canvas-wrap"><canvas id="revenueChart"></canvas></div>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-cell">
+        <div class="metric-val flame">$15-16B</div>
+        <div class="metric-label">2025 Revenue</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val cyan">$8B</div>
+        <div class="metric-label">2025 EBITDA</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val green">~$2B</div>
+        <div class="metric-label">Free Cash Flow</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val blue">~15%</div>
+        <div class="metric-label">Net Margin</div>
+      </div>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit B</div>
+      <div class="chart-panel-subtitle">Secondary Market Pricing Trajectory ($/share)</div>
+      <div class="chart-canvas-wrap"><canvas id="pricingChart"></canvas></div>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit C</div>
+      <div class="chart-panel-subtitle">Valuation Context &mdash; Price-to-Sales Ratio</div>
+      <div class="chart-canvas-wrap"><canvas id="valuationChart"></canvas></div>
+    </div>
+
+    <div class="analyst-note reveal">
+      <p><strong>530% appreciation</strong> in two years on the secondary market. At $1.5T / ~$24B 2026 revenue, SpaceX would trade at ~62x price-to-sales &mdash; higher than Rocket Lab (55-57x) and far above Tesla's peak of ~30x.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 3: STARLINK DEEP DIVE ═══════════════ -->
+<section id="starlink">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 3</div>
+      <h2 class="section-title">Starlink Deep Dive</h2>
+      <p class="section-desc">Starlink generated 69% of SpaceX revenue in 2025 and will generate ~79% in 2026. Investors are buying a rapidly scaling satellite ISP that happens to also launch rockets.</p>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit D</div>
+      <div class="chart-panel-subtitle">Subscriber Growth Trajectory (Millions)</div>
+      <div class="chart-canvas-wrap"><canvas id="subscriberChart"></canvas></div>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-cell">
+        <div class="metric-val flame">9,400+</div>
+        <div class="metric-label">Active Satellites</div>
+        <div class="metric-context">Largest constellation ever</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val cyan">~100 Gbps</div>
+        <div class="metric-label">V2 Mini Capacity</div>
+        <div class="metric-context">Current generation</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val green">1+ Tbps</div>
+        <div class="metric-label">V3 Capacity</div>
+        <div class="metric-context">10x improvement, 2026</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val blue">34,400</div>
+        <div class="metric-label">Approved Total</div>
+        <div class="metric-context">FCC authorization</div>
+      </div>
+    </div>
+
+    <div class="card card-highlight reveal">
+      <div class="card-label">Game Changer</div>
+      <h3>Direct-to-Cell (T-Satellite)</h3>
+      <p>Launched July 23, 2025 with T-Mobile. 650+ DTC satellites, ~60 phone models supported (Samsung, Motorola, iPhone) &mdash; no special hardware. SMS/MMS and limited data across Continental US, PR, Hawaii, Alaska. V3 DTC satellites to deliver full 5G cellular from space. Transforms Starlink from a dish-based service to a ubiquitous cellular supplement.</p>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit E</div>
+      <div class="chart-panel-subtitle">Competitive Moat &mdash; Satellite Count</div>
+      <div class="chart-canvas-wrap"><canvas id="moatChart"></canvas></div>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit F</div>
+      <div class="chart-panel-subtitle">Total Addressable Market ($B, 2030 Projections)</div>
+      <div class="chart-canvas-wrap"><canvas id="tamChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 4: THE MUSK EMPIRE ═══════════════ -->
+<section id="empire">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 4</div>
+      <h2 class="section-title">The Musk Empire</h2>
+      <p class="section-desc">Interconnections, cross-company controversies, and the consolidation map of the world's most complex corporate structure.</p>
+    </div>
+
+    <div class="constellation reveal">
+      <div class="constellation-tier">
+        <div class="constellation-node primary">SpaceX ($1T)</div>
+      </div>
+      <div class="constellation-connector"></div>
+      <div class="constellation-tier">
+        <div class="constellation-node secondary">Starlink</div>
+        <div class="constellation-node secondary">Launch Services</div>
+        <div class="constellation-node secondary">Starshield / MILNET</div>
+      </div>
+      <div class="constellation-connector"></div>
+      <div class="constellation-tier">
+        <div class="constellation-node primary" style="border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,0.08);">xAI ($250B) &mdash; Subsidiary</div>
+      </div>
+      <div class="constellation-connector"></div>
+      <div class="constellation-tier">
+        <div class="constellation-node secondary">Grok AI</div>
+        <div class="constellation-node secondary">Colossus (555K GPUs)</div>
+        <div class="constellation-node tertiary">X / Twitter (500M+ MAU)</div>
+      </div>
+      <div style="width:100%;height:1px;background:var(--border-subtle);margin:16px 0;"></div>
+      <div class="constellation-tier">
+        <div class="constellation-node tertiary">Tesla ($1.1T) &mdash; Separate</div>
+        <div class="constellation-node tertiary">Boring Company (~$5.7B)</div>
+        <div class="constellation-node tertiary">Neuralink (~$9B)</div>
+      </div>
+    </div>
+
+    <div class="analyst-note warn reveal">
+      <p><strong>Cross-Company Controversies:</strong> Musk redirected 12,000 H100 GPUs ($500M) from Tesla to xAI. Tesla invested $2B in xAI against shareholder vote. Tesla shut down Dojo supercomputer. Active lawsuits from Tesla shareholders for breach of fiduciary duty. Senator Warren called for SEC investigation.</p>
+    </div>
+
+    <div class="ledger-wrap reveal">
+      <table class="ledger">
+        <caption>Musk's Ownership &mdash; February 2026</caption>
+        <thead><tr><th>Company</th><th>Equity</th><th>Voting Control</th><th>Stake Value</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">SpaceX + xAI</td><td class="num-flame">~44%</td><td class="num-flame">~79%</td><td class="num-flame">~$550B</td></tr>
+          <tr><td class="row-label">Tesla</td><td class="num-cyan">~15.8%</td><td>~15.8%</td><td class="num-cyan">~$170B</td></tr>
+          <tr><td class="row-label">X (via xAI)</td><td>~42%</td><td>&mdash;</td><td>Part of SpaceX</td></tr>
+          <tr><td class="row-label">Boring Company</td><td>~70%</td><td>Majority</td><td>~$4-5B</td></tr>
+          <tr><td class="row-label">Neuralink</td><td>Majority</td><td>Majority</td><td>~$5B</td></tr>
+          <tr><td class="row-label" style="font-weight:800;">Net Worth (Forbes)</td><td colspan="2"></td><td class="num-flame" style="font-size:14px;">~$852B</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="analyst-note reveal">
+      <p><strong>Polymarket:</strong> 72% odds Musk becomes world's first trillionaire before 2027.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 5: xAI AND THE AI ANGLE ═══════════════ -->
+<section id="xai">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 5</div>
+      <h2 class="section-title">xAI &amp; the AI Angle</h2>
+      <p class="section-desc">The xAI merger adds AI optionality: Grok models, Colossus supercomputer, and the vision of orbital data centers.</p>
+    </div>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-label">AI Platform</div>
+        <h3>Grok 4.1</h3>
+        <p>2M token context, $0.20/1M input tokens (vs. GPT-4o at $5.00). Real-time X/Twitter data firehose access. Integrated into Tesla vehicles, X platform, standalone API.</p>
+      </div>
+      <div class="card card-highlight">
+        <div class="card-label">Infrastructure</div>
+        <h3>Colossus Supercomputer</h3>
+        <p>Largest AI supercomputer in the world, Memphis, TN. ~230K GPUs expanding to 555K ($18B hardware). Target: 1M+ GPUs by late 2026.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Founded March 2023</div>
+        <h3>xAI Overview</h3>
+        <p>1,200+ employees. $40B+ total funding raised. Acquired by SpaceX Feb 2, 2026. Mission: "advance our collective understanding of the universe."</p>
+      </div>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit G</div>
+      <div class="chart-panel-subtitle">Colossus GPU Scaling Trajectory</div>
+      <div class="chart-canvas-wrap"><canvas id="gpuChart"></canvas></div>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-cell">
+        <div class="metric-val ember">~$500M</div>
+        <div class="metric-label">Annual Revenue</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val ember">~$1B/mo</div>
+        <div class="metric-label">Burn Rate</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val blue">2027</div>
+        <div class="metric-label">Profitability Target</div>
+      </div>
+    </div>
+
+    <div class="analyst-note warn reveal">
+      <p><strong>OpenAI Rivalry:</strong> Musk suing OpenAI for $79-134B in damages; trial begins April 27, 2026. xAI countersuing for trade secrets theft. OpenAI accusing xAI of evidence destruction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 6: DEFENSE & GOVERNMENT ═══════════════ -->
+<section id="defense">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 6</div>
+      <h2 class="section-title">Defense &amp; Government</h2>
+      <p class="section-desc">$22B+ in known government contracts and growing. ~35-40% of total SpaceX revenue comes from government sources.</p>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit H</div>
+      <div class="chart-panel-subtitle">Contract Values by Program ($B)</div>
+      <div class="chart-canvas-wrap"><canvas id="contractChart"></canvas></div>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit I</div>
+      <div class="chart-panel-subtitle">Revenue Source Breakdown</div>
+      <div class="chart-canvas-wrap"><canvas id="govShareChart"></canvas></div>
+    </div>
+
+    <div class="analyst-note warn reveal">
+      <p><strong>DOGE Conflict of Interest:</strong> Musk led DOGE (Jan-May 2025) while SpaceX holds $22B+ in government contracts. His companies received $38B in federal funds over the past decade. SpaceX awarded $5.9B Space Force contract while Musk led DOGE. Proposed NASA budget cuts (24.3%) would eliminate SpaceX's only government-funded deep-space competitor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 7: STARSHIP ═══════════════ -->
+<section id="starship">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 7</div>
+      <h2 class="section-title">Starship &mdash; The Future</h2>
+      <p class="section-desc">The fully reusable super heavy-lift launch system that unlocks V3 Starlink, Mars missions, and orbital refueling.</p>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:24px;">2025 Flight Test Record</h3>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item partial">
+        <div class="timeline-date">January 16, 2025</div>
+        <div class="timeline-title">Flight 7</div>
+        <div class="timeline-desc">Booster caught successfully; Ship lost due to vibration failure</div>
+      </div>
+      <div class="timeline-item partial">
+        <div class="timeline-date">March 6, 2025</div>
+        <div class="timeline-title">Flight 8</div>
+        <div class="timeline-desc">Booster caught successfully; Ship lost due to Raptor leak</div>
+      </div>
+      <div class="timeline-item partial">
+        <div class="timeline-date">May 27, 2025</div>
+        <div class="timeline-title">Flight 9</div>
+        <div class="timeline-desc">First reflown booster (exploded on landing); Ship passed SECO but tumbled</div>
+      </div>
+      <div class="timeline-item success">
+        <div class="timeline-date">August 26, 2025</div>
+        <div class="timeline-title">Flight 10 &mdash; First Complete Success</div>
+        <div class="timeline-desc">Full orbit, dummy Starlink deploy, controlled splashdown. The breakthrough moment.</div>
+      </div>
+      <div class="timeline-item success">
+        <div class="timeline-date">October 13, 2025</div>
+        <div class="timeline-title">Flight 11</div>
+        <div class="timeline-desc">Success; final Block 2 vehicle</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin:40px 0 20px;">What's Next</h3>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item future">
+        <div class="timeline-date">Feb-Mar 2026</div>
+        <div class="timeline-title">Flight 12 &mdash; Block 3 Debut</div>
+        <div class="timeline-desc">Raptor 3 engines, next-generation vehicle</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-date">2026</div>
+        <div class="timeline-title">Orbital Refueling Demo</div>
+        <div class="timeline-desc">Critical for Artemis lunar lander and Mars missions</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-date">2026</div>
+        <div class="timeline-title">Starlink V3 Deployment</div>
+        <div class="timeline-desc">First V3 satellites via Starship. 60 satellites per launch, 60 Tbps added per flight.</div>
+      </div>
+      <div class="timeline-item future">
+        <div class="timeline-date">Nov-Dec 2026</div>
+        <div class="timeline-title">Mars Launch Window</div>
+        <div class="timeline-desc">5 uncrewed Starship flights to Mars (Musk gives 50/50 odds)</div>
+      </div>
+    </div>
+
+    <div class="analyst-note reveal">
+      <p><strong>Why Starship Matters:</strong> V3 Starlink satellites (10x capacity) can ONLY launch on Starship. Each launch adds 60 Tbps of capacity. FAA approved 25 Starship launches/year from Starbase (5x increase). Gwynne Shotwell targets 400 Starship launches over the next 4 years.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 8: HOW TO PARTICIPATE ═══════════════ -->
+<section id="participate">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 8</div>
+      <h2 class="section-title">How to Participate</h2>
+      <p class="section-desc">Multiple entry points for every investor type &mdash; from mutual funds with zero minimums to direct pre-IPO shares for accredited investors.</p>
+    </div>
+
+    <div class="card-grid-3 reveal">
+      <div class="card" style="border-top:3px solid var(--accent-amber);">
+        <div class="card-label" style="color:var(--accent-amber);">Pre-IPO</div>
+        <h3>Accredited Investors</h3>
+        <p>$200K+ income or $1M+ net worth required. Direct shares at ~$550/share through Forge Global ($5K-$100K min), EquityZen ($10K-$200K), or Hiive ($25K).</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--flame);">
+        <div class="card-label">IPO Day</div>
+        <h3>Allocation Lottery</h3>
+        <p>Robinhood (no minimum, random lottery), SoFi ($3K min, limited allocation), Fidelity ($100K-$500K, institutional priority). Schwab and IBKR not available.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--accent-green);">
+        <div class="card-label" style="color:var(--accent-green);">Post-IPO</div>
+        <h3>Open Market</h3>
+        <p>Standard 180-day lockup period. After lockup: open market on any brokerage. Historical data strongly favors waiting 3-6 months for better entry.</p>
+      </div>
+    </div>
+
+    <div class="ledger-wrap reveal">
+      <table class="ledger">
+        <caption>Funds with SpaceX Exposure (Any Investor)</caption>
+        <thead><tr><th>Fund</th><th>Ticker</th><th>SpaceX %</th><th>Minimum</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">Baron Partners Fund</td><td class="num-flame">BPTRX</td><td class="num-flame">29%</td><td>$2,000</td><td>Highest concentration retail fund</td></tr>
+          <tr><td class="row-label">Baron Focused Growth</td><td class="num-cyan">BFGFX</td><td class="num-cyan">19%</td><td>$2,000</td><td>Second highest</td></tr>
+          <tr><td class="row-label">Destiny Tech100</td><td class="num-cyan">DXYZ</td><td class="num-cyan">26-38%</td><td>1 share</td><td>Closed-end fund; trades at premium</td></tr>
+          <tr><td class="row-label">ARK Venture Fund</td><td>ARKVX</td><td>17.6%</td><td>Varies</td><td>Interval fund; 3.49% expense ratio</td></tr>
+          <tr><td class="row-label">Private Shares Fund</td><td>PIIVX</td><td>13.6%</td><td>$2,500</td><td>Diversified pre-IPO portfolio</td></tr>
+          <tr><td class="row-label">XOVR ETF</td><td class="num-green">XOVR</td><td class="num-green">9.8-11%</td><td>1 share</td><td>Only ETF with direct SpaceX</td></tr>
+          <tr><td class="row-label">Fidelity Contrafund</td><td>FCNTX</td><td>~3.3%</td><td>$0</td><td>Low-cost, diversified</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ledger-wrap reveal">
+      <table class="ledger">
+        <caption>Indirect Exposure via Public Stocks</caption>
+        <thead><tr><th>Ticker</th><th>Company</th><th>Connection</th></tr></thead>
+        <tbody>
+          <tr><td class="num-flame">GOOGL</td><td class="row-label">Alphabet</td><td>Owns ~7% of SpaceX ($100B+ value)</td></tr>
+          <tr><td class="num-cyan">SATS</td><td class="row-label">EchoStar</td><td>Holds ~3% equity via spectrum deal</td></tr>
+          <tr><td class="num-green">STM</td><td class="row-label">STMicroelectronics</td><td>5B+ chips shipped to Starlink</td></tr>
+          <tr><td class="num-blue">NVDA</td><td class="row-label">Nvidia</td><td>xAI Colossus GPU monopoly ($18B+)</td></tr>
+          <tr><td class="num-flame">TMUS</td><td class="row-label">T-Mobile</td><td>Exclusive Starlink direct-to-cell partner</td></tr>
+          <tr><td class="num-cyan">RKLB</td><td class="row-label">Rocket Lab</td><td>Closest public SpaceX comparable</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="analyst-note reveal">
+      <p><strong>Tax Tip:</strong> Hold 1+ year for long-term capital gains (0/15/20% vs. up to 37% short-term). 3.8% NIIT surtax above $200K MAGI. Pre-IPO SPV investments may issue K-1, not 1099.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 9: BENEFICIARY WATCHLIST ═══════════════ -->
+<section id="watchlist">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 9</div>
+      <h2 class="section-title">Beneficiary Stock Watchlist</h2>
+      <p class="section-desc">Tiered stock picks ranked by conviction &mdash; from direct revenue dependencies to broad sector tailwinds.</p>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:20px;color:var(--accent-green);">Tier 1 &mdash; Highest Conviction</h3>
+    </div>
+    <div class="card-grid reveal" id="tier1-grid"></div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:20px;color:var(--thrust-blue);">Tier 2 &mdash; Strong Indirect</h3>
+    </div>
+    <div class="card-grid reveal" id="tier2-grid"></div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:20px;color:var(--flame);">Tier 3 &mdash; Sector Tailwind</h3>
+    </div>
+    <div class="card-grid reveal" id="tier3-grid"></div>
+
+    <div class="ledger-wrap reveal" style="margin-top:40px;">
+      <table class="ledger">
+        <caption>Space ETFs</caption>
+        <thead><tr><th>Ticker</th><th>Fund</th><th>AUM</th><th>SpaceX?</th></tr></thead>
+        <tbody>
+          <tr><td class="num-cyan">UFO</td><td class="row-label">Procure Space ETF</td><td>~$293M</td><td>No (would add post-IPO)</td></tr>
+          <tr><td class="num-cyan">ARKX</td><td class="row-label">ARK Space Exploration</td><td>~$500M</td><td>No</td></tr>
+          <tr><td class="num-green">XOVR</td><td class="row-label">ERShares Private-Public</td><td>Smaller</td><td class="num-green">YES (~11%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:20px;color:var(--ember);">Potential Losers</h3>
+    </div>
+    <div class="card-grid reveal" id="losers-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 10: THE BEAR CASE ═══════════════ -->
+<section id="bearcase">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 10</div>
+      <h2 class="section-title">The Bear Case</h2>
+      <p class="section-desc">Eleven risks that could derail the thesis &mdash; from extreme valuation to geopolitical weaponization.</p>
+    </div>
+
+    <div class="card-grid reveal" id="risk-grid"></div>
+
+    <div class="pullquote reveal">
+      <blockquote>At $1.5 trillion and 60-68x sales, there is very little room for anything to go wrong. The growth premium requires perfect execution across multiple fronts simultaneously.</blockquote>
+      <cite>Overall Risk Assessment</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 11: HISTORICAL IPO COMPARISONS ═══════════════ -->
+<section id="comparisons">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 11</div>
+      <h2 class="section-title">Historical IPO Comparisons</h2>
+      <p class="section-desc">How similar mega-cap IPOs performed &mdash; and what the statistical base rate tells us about buying at day-1 close.</p>
+    </div>
+
+    <div class="chart-panel reveal">
+      <div class="chart-panel-title">Exhibit J</div>
+      <div class="chart-panel-subtitle">Mega-Cap IPO Performance (%)</div>
+      <div class="chart-canvas-wrap"><canvas id="ipoChart"></canvas></div>
+    </div>
+
+    <div class="ledger-wrap reveal">
+      <table class="ledger">
+        <caption>Space Stock Track Record</caption>
+        <thead><tr><th>Company</th><th>Entry</th><th>Current</th><th>Return</th></tr></thead>
+        <tbody>
+          <tr><td class="row-label">Virgin Galactic (2019)</td><td>$11.75</td><td>$2.35</td><td class="num-ember">-80% (-99.8% from peak)</td></tr>
+          <tr><td class="row-label">Rocket Lab (2021)</td><td>~$10-12</td><td>~$55-60</td><td class="num-green">+400-500%</td></tr>
+          <tr><td class="row-label">Planet Labs (2021)</td><td>~$11</td><td>~$3-4</td><td class="num-ember">-65%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-cell">
+        <div class="metric-val ember">57%</div>
+        <div class="metric-label">IPOs with Negative Returns</div>
+        <div class="metric-context">Over 4 years from day-1 close</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val ember">2/3</div>
+        <div class="metric-label">Underperform Market</div>
+        <div class="metric-context">Over 3 years</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val amber">18.4%</div>
+        <div class="metric-label">Avg Day-1 Pop</div>
+        <div class="metric-context">For allocation holders</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-val blue">-1.5%</div>
+        <div class="metric-label">Lockup Expiration</div>
+        <div class="metric-context">Avg 3-day abnormal return</div>
+      </div>
+    </div>
+
+    <div class="card card-highlight reveal">
+      <div class="card-label">Closest Historical Analog</div>
+      <h3>Facebook (2012)</h3>
+      <p>Both are mega-cap IPOs of companies with real revenue, massive hype, extreme valuations, and a founder with outsized control. Facebook dropped 50% in 4 months before becoming one of the best investments of the decade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 12: OPTIMAL STRATEGY ═══════════════ -->
+<section id="strategy">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 12</div>
+      <h2 class="section-title">Optimal Strategy &mdash; The Playbook</h2>
+      <p class="section-desc">A phased approach from now through post-IPO, calibrated by investor type and informed by historical data.</p>
+    </div>
+
+    <div class="playbook-phase reveal">
+      <div class="phase-tag">Phase 1 &mdash; Now through June 2026</div>
+      <h3>Before the IPO</h3>
+      <div class="step"><div class="step-num">1</div><p><strong>Baron Partners Fund (BPTRX)</strong> &mdash; 29% SpaceX exposure, $2,000 minimum. Highest-concentration retail-accessible vehicle.</p></div>
+      <div class="step"><div class="step-num">2</div><p><strong>XOVR ETF</strong> &mdash; ~11% SpaceX, buy on any brokerage, no accredited requirement.</p></div>
+      <div class="step"><div class="step-num">3</div><p><strong>Fidelity Contrafund (FCNTX)</strong> &mdash; ~3.3% SpaceX, $0 minimum, low-cost diversified fund.</p></div>
+      <div class="step"><div class="step-num">4</div><p><strong>Build the watchlist</strong> &mdash; accumulate Tier 1 beneficiary stocks (STM, NVDA, TMUS, RKLB) for sector tailwind.</p></div>
+      <div class="step"><div class="step-num">5</div><p><strong>Accredited only:</strong> Forge Global or Hiive for direct shares at ~$550/share ($25K-$100K min).</p></div>
+    </div>
+
+    <div class="playbook-phase reveal">
+      <div class="phase-tag">Phase 2 &mdash; Mid-June 2026</div>
+      <h3>IPO Day</h3>
+      <div class="step"><div class="step-num">6</div><p><strong>Request allocation</strong> through Robinhood (lottery) or SoFi ($3K minimum).</p></div>
+      <div class="step"><div class="step-num">7</div><p><strong>Do NOT chase the open market price on day one.</strong> 57% of IPOs produce negative returns when bought at day-1 close.</p></div>
+      <div class="step"><div class="step-num">8</div><p>If you get an IPO allocation at the offering price, that's valuable &mdash; hold it.</p></div>
+    </div>
+
+    <div class="playbook-phase reveal">
+      <div class="phase-tag">Phase 3 &mdash; June-December 2026</div>
+      <h3>Post-IPO</h3>
+      <div class="step"><div class="step-num">9</div><p><strong>Wait for the dip.</strong> Every mega-cap IPO except Arm and Google offered better entry within 6 months.</p></div>
+      <div class="step"><div class="step-num">10</div><p><strong>Watch lockup expiration</strong> (~180 days post-IPO, around December 2026). Statistically the best buying window.</p></div>
+      <div class="step"><div class="step-num">11</div><p><strong>Monitor Starlink subscribers</strong> &mdash; if doubling trend holds (18M+ by year-end), thesis is intact regardless of price.</p></div>
+    </div>
+
+    <div class="ledger-wrap reveal">
+      <table class="ledger">
+        <caption>Key Catalysts to Watch</caption>
+        <thead><tr><th>Date</th><th>Catalyst</th></tr></thead>
+        <tbody>
+          <tr><td class="num-flame">Feb-Mar 2026</td><td class="row-label">Starship Flight 12 (Block 3 debut)</td></tr>
+          <tr><td class="num-flame">Apr-May 2026</td><td class="row-label">Expected S-1 filing</td></tr>
+          <tr><td class="num-ember">Apr 27, 2026</td><td class="row-label">Musk vs. OpenAI trial begins</td></tr>
+          <tr><td class="num-flame">Mid-June 2026</td><td class="row-label">IPO target date</td></tr>
+          <tr><td class="num-cyan">H2 2026</td><td class="row-label">Starlink V3 satellite deployment via Starship</td></tr>
+          <tr><td class="num-cyan">Nov-Dec 2026</td><td class="row-label">Mars launch window (5 uncrewed flights)</td></tr>
+          <tr><td class="num-ember">Dec 2026</td><td class="row-label">Lockup expiration (estimated)</td></tr>
+          <tr><td class="num-green">Q1 2027</td><td class="row-label">First earnings report as public company</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PART 13: THE VERDICT ═══════════════ -->
+<section id="verdict">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Part 13</div>
+      <h2 class="section-title">The Verdict</h2>
+    </div>
+
+    <div class="verdict-strip reveal">
+      <div class="verdict-col">
+        <div class="verdict-tag bear">Bear Case</div>
+        <h3>Caution Warranted</h3>
+        <p>60-68x sales for a 7% gross margin hardware business. Musk runs 6+ companies with active lawsuits, investigations, and political toxicity. Amazon entering with $10B+ and ecosystem bundling. $8.2B/year satellite replacement capex is a permanent drain. xAI burning $1B/month. Massive post-IPO selling pressure from 20+ years of accumulated positions.</p>
+      </div>
+      <div class="verdict-col">
+        <div class="verdict-tag base">Bottom Line</div>
+        <h3>Get Exposure, Save Dry Powder</h3>
+        <p>SpaceX may be the most impressive private company ever built. Starlink's growth is genuinely exceptional and the launch monopoly is durable. But at $1.5T, there is very little room for error. The highest-probability strategy: get exposure now through funds, request an IPO allocation, but save dry powder for the post-lockup dip 3-6 months after listing.</p>
+      </div>
+      <div class="verdict-col">
+        <div class="verdict-tag bull">Bull Case</div>
+        <h3>Generational Investment</h3>
+        <p>Global telecom monopoly from scratch, growing 80%+ YoY. 82% commercial launch share with reusability moat. $22B+ government backstop. Direct-to-cell could address billions. Starship + V3 create 10x capacity leap. If Starlink reaches 50M+ subscribers at $70/month ARPU, that's $42B/year in recurring revenue alone.</p>
+      </div>
+    </div>
+
+    <div class="pullquote reveal">
+      <blockquote>The Facebook-level returns were made not at the IPO, but 3-6 months after listing when the lockup expired and panic sellers were done. That window is where patient capital wins.</blockquote>
+      <cite>Historical Pattern Analysis</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DISCLAIMER ═══════════════ -->
+<div class="disclaimer">
+  <p>This is research and analysis, not financial advice. All investments carry risk. Consult a financial advisor before making investment decisions. Data current as of February 8, 2026.</p>
+  <p style="margin-top:12px;font-size:10px;">Compiled by BigPic Solutions &bull; 11-Agent Deep Research</p>
+</div>
+
+</div><!-- /content-wrap -->
+
+<script>
+// ═══════════════ STARFIELD ═══════════════
+(function() {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    const count = Math.min(Math.floor(w * h / 4000), 400);
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.2 + 0.3,
+        a: Math.random() * 0.6 + 0.1,
+        speed: Math.random() * 0.0003 + 0.0001,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    stars.forEach(s => {
+      const flicker = Math.sin(t * s.speed * 1000 + s.phase) * 0.3 + 0.7;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(180, 200, 255, ${s.a * flicker})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); initStars(); });
+  resize();
+  initStars();
+  requestAnimationFrame(draw);
+})();
+
+// ═══════════════ COUNTDOWN ═══════════════
+(function() {
+  const target = new Date('2026-06-15T09:30:00-04:00').getTime();
+  function update() {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '0';
+      document.getElementById('cd-mins').textContent = '0';
+      document.getElementById('cd-secs').textContent = '0';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
+// ═══════════════ SCROLL REVEAL ═══════════════
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ═══════════════ CHART DEFAULTS ═══════════════
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#8a94a8';
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth = 10;
+
+const gridColor = 'rgba(255,255,255,0.06)';
+const flame = '#f97316';
+const cyan = '#22d3ee';
+const ember = '#ef4444';
+const blue = '#3b82f6';
+const green = '#10b981';
+const amber = '#f59e0b';
+const violet = '#8b5cf6';
+
+// ═══════════════ EXHIBIT A: Revenue ═══════════════
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2024', '2025', '2026 (Projected)'],
+    datasets: [
+      { label: 'Starlink', data: [7.7, 10.9, 17.3], backgroundColor: flame + 'cc', borderColor: flame, borderWidth: 1, borderRadius: 3, barPercentage: 0.7 },
+      { label: 'Launch', data: [5.5, 4.4, 5.0], backgroundColor: cyan + 'cc', borderColor: cyan, borderWidth: 1, borderRadius: 3, barPercentage: 0.7 },
+      { label: 'Total', data: [13.1, 15.5, 23.0], backgroundColor: blue + '66', borderColor: blue, borderWidth: 1, borderRadius: 3, borderDash: [4,4], barPercentage: 0.7 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.raw + 'B' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => '$' + v + 'B' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT B: Secondary Market Pricing ═══════════════
+new Chart(document.getElementById('pricingChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jan 2024', 'Jun 2024', 'Dec 2024', 'Jul 2025', 'Dec 2025', 'Feb 2026'],
+    datasets: [{
+      label: 'Price per Share',
+      data: [87, 136, 185, 212, 421, 550],
+      borderColor: flame, backgroundColor: flame + '18',
+      fill: true, tension: 0.35,
+      pointBackgroundColor: flame, pointRadius: 5, pointHoverRadius: 8,
+      borderWidth: 2.5
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => '$' + ctx.raw + '/share' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => '$' + v } },
+      x: { grid: { color: 'rgba(255,255,255,0.03)' } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT C: Valuation Context ═══════════════
+new Chart(document.getElementById('valuationChart'), {
+  type: 'bar',
+  data: {
+    labels: ['SpaceX IPO\n(2026)', 'Rocket Lab\n(Current)', 'Tesla Peak', 'Snowflake IPO\n(2020)'],
+    datasets: [{
+      data: [62, 56, 30, 150],
+      backgroundColor: [flame + 'cc', cyan + 'cc', blue + 'cc', violet + 'cc'],
+      borderColor: [flame, cyan, blue, violet],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw + 'x P/S' } } },
+    scales: {
+      x: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => v + 'x' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT D: Subscriber Growth ═══════════════
+new Chart(document.getElementById('subscriberChart'), {
+  type: 'line',
+  data: {
+    labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q2 2026P', 'Q4 2026P'],
+    datasets: [{
+      label: 'Subscribers (M)',
+      data: [2.7, 3.2, 3.8, 4.6, 5.5, 6.5, 7.6, 9.0, 13.2, 18.4],
+      borderColor: flame, backgroundColor: flame + '15',
+      fill: true, tension: 0.3,
+      pointBackgroundColor: (ctx) => ctx.dataIndex >= 8 ? amber : flame,
+      pointRadius: 5, pointHoverRadius: 8, borderWidth: 2.5,
+      segment: { borderDash: ctx => ctx.p1DataIndex >= 8 ? [6,3] : undefined }
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => ctx.raw + 'M subscribers' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => v + 'M' } },
+      x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { font: { size: 9 } } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT E: Competitive Moat ═══════════════
+new Chart(document.getElementById('moatChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Starlink', 'Amazon Kuiper', 'OneWeb', 'AST SpaceMobile', 'Telesat'],
+    datasets: [{
+      label: 'Satellites',
+      data: [9400, 180, 600, 35, 0],
+      backgroundColor: [flame + 'cc', blue + 'cc', cyan + '99', green + '99', violet + '99'],
+      borderColor: [flame, blue, cyan, green, violet],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw.toLocaleString() + ' satellites' } } },
+    scales: {
+      x: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => v >= 1000 ? (v/1000) + 'K' : v } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT F: TAM ═══════════════
+new Chart(document.getElementById('tamChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Satellite Internet', 'Unserved Population', 'Maritime', 'Direct-to-Cell'],
+    datasets: [{
+      data: [33.4, 74, 6.25, 120],
+      backgroundColor: [flame + 'cc', cyan + 'cc', blue + 'cc', green + 'cc'],
+      borderColor: [flame, cyan, blue, green],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '$' + ctx.raw + 'B' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => '$' + v + 'B' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT G: GPU Scaling ═══════════════
+new Chart(document.getElementById('gpuChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Current', 'Expanding', 'Target (Late 2026)'],
+    datasets: [{
+      label: 'GPUs',
+      data: [230000, 555000, 1000000],
+      backgroundColor: [cyan + 'cc', flame + 'cc', green + '88'],
+      borderColor: [cyan, flame, green],
+      borderWidth: 1, borderRadius: 3,
+      barPercentage: 0.5
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw.toLocaleString() + ' GPUs' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => (v/1000) + 'K' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT H: Contracts ═══════════════
+new Chart(document.getElementById('contractChart'), {
+  type: 'bar',
+  data: {
+    labels: ['MILNET', 'NSSL Phase 3\nLane 2', 'NASA Crew', 'NASA Artemis\nHLS', 'NASA Cargo', 'Golden Dome', 'Starshield\nNRO', 'BADASS', 'NSSL Lane 1'],
+    datasets: [{
+      data: [13, 5.9, 4.93, 4.2, 3.7, 2, 1.8, 1, 0.739],
+      backgroundColor: flame + 'cc',
+      borderColor: flame, borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '$' + ctx.raw + 'B' } } },
+    scales: {
+      x: { beginAtZero: true, grid: { color: gridColor }, ticks: { callback: v => '$' + v + 'B' } },
+      y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT I: Revenue Source ═══════════════
+new Chart(document.getElementById('govShareChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Commercial Starlink', 'Government / Starshield', 'Commercial Launch'],
+    datasets: [{
+      data: [45, 37, 18],
+      backgroundColor: [flame + 'cc', cyan + 'cc', blue + 'cc'],
+      borderColor: '#06080d', borderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + '%' } }
+    }
+  }
+});
+
+// ═══════════════ EXHIBIT J: IPO Performance ═══════════════
+new Chart(document.getElementById('ipoChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Google\n(2004)', 'Facebook\n(2012)', 'Rivian\n(2021)', 'Arm\n(2023)', 'Snowflake\n(2020)', 'Palantir\n(2020)'],
+    datasets: [
+      { label: 'Day 1', data: [18, 0.6, 29, 25, 112, 31], backgroundColor: green + 'cc', borderColor: green, borderWidth: 1, borderRadius: 2, barPercentage: 0.7 },
+      { label: '6 Months', data: [124, -39, -70, 176, 0, 148], backgroundColor: cyan + 'cc', borderColor: cyan, borderWidth: 1, borderRadius: 2, barPercentage: 0.7 },
+      { label: '1 Year', data: [229, -32, -58, 266, 235, -32], backgroundColor: flame + 'cc', borderColor: flame, borderWidth: 1, borderRadius: 2, barPercentage: 0.7 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + (ctx.raw > 0 ? '+' : '') + ctx.raw + '%' } } },
+    scales: {
+      y: { grid: { color: gridColor }, ticks: { callback: v => (v > 0 ? '+' : '') + v + '%' } },
+      x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+    }
+  }
+});
+
+// ═══════════════ COMPANY CARDS ═══════════════
+function createCompanyCard(c, gridId) {
+  const card = document.createElement('div');
+  card.className = `company-card ${c.tier}`;
+  card.innerHTML = `
+    <div class="card-header">
+      <div>
+        <div class="ticker">${c.ticker}</div>
+        <div class="company-name">${c.name}</div>
+      </div>
+      <div class="tier-badge ${c.badge}">${c.badgeText}</div>
+    </div>
+    <div class="thesis">${c.thesis}</div>
+  `;
+  document.getElementById(gridId).appendChild(card);
+}
+
+// Tier 1
+[
+  { ticker: 'STM', name: 'STMicroelectronics', tier: 'tier-1', badge: 't1', badgeText: 'Tier 1', thesis: 'Starlink\'s chip backbone. 5B+ RF antenna chips shipped, doubling by 2027.' },
+  { ticker: 'NVDA', name: 'Nvidia', tier: 'tier-1', badge: 't1', badgeText: 'Tier 1', thesis: 'xAI Colossus runs 200K+ H100s, scaling to 555K+. Invested $2B in xAI.' },
+  { ticker: 'TMUS', name: 'T-Mobile', tier: 'tier-1', badge: 't1', badgeText: 'Tier 1', thesis: 'Exclusive US Starlink D2D partner. 1.8M T-Satellite subscribers.' },
+  { ticker: 'SATS', name: 'EchoStar', tier: 'tier-1', badge: 't1', badgeText: 'Tier 1', thesis: 'Holds ~3% SpaceX equity via $17B spectrum sale.' },
+  { ticker: 'RKLB', name: 'Rocket Lab', tier: 'tier-1', badge: 't1', badgeText: 'Tier 1', thesis: 'Closest public SpaceX comp. +190% over 52 weeks. $805M SDA contract.' }
+].forEach(c => createCompanyCard(c, 'tier1-grid'));
+
+// Tier 2
+[
+  { ticker: 'HEI', name: 'HEICO Corp', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: 'Mission-critical aerospace parts; 34% earnings growth.' },
+  { ticker: 'MOG.A', name: 'Moog Inc', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: 'Thrusters/actuators on every major satellite/launch vehicle. $3B backlog.' },
+  { ticker: 'ASTS', name: 'AST SpaceMobile', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: 'D2D competitor; +270% in 2025; AT&T, VZ, Vodafone partnerships.' },
+  { ticker: 'LMT', name: 'Lockheed Martin', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: '$1.1B SDA Tranche 3 contract (largest single award).' },
+  { ticker: 'LHX', name: 'L3Harris', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: '$843M SDA contract; 8.1% of ARKX ETF.' },
+  { ticker: 'NOC', name: 'Northrop Grumman', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: '$764M SDA contract; builds Cygnus spacecraft.' },
+  { ticker: 'GOOGL', name: 'Alphabet', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: 'Cloud partnership + 7% SpaceX ownership + ASTS stake.' },
+  { ticker: 'TSLA', name: 'Tesla', tier: 'tier-2', badge: 't2', badgeText: 'Tier 2', thesis: 'Musk premium; binary \u2014 could benefit from halo or suffer capital rotation.' }
+].forEach(c => createCompanyCard(c, 'tier2-grid'));
+
+// Tier 3
+[
+  { ticker: 'KTOS', name: 'Kratos Defense', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Ground systems; $25M Space Force contract; revenue guidance $1.5-1.7B.' },
+  { ticker: 'LUNR', name: 'Intuitive Machines', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Potential $4.6B NASA lunar vehicle contract.' },
+  { ticker: 'PL', name: 'Planet Labs', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: '$260M German defense contract.' },
+  { ticker: 'RDW', name: 'Redwire', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Space infrastructure; Axiom Station contract.' },
+  { ticker: 'HXL', name: 'Hexcel', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Largest aerospace carbon fiber producer.' },
+  { ticker: 'STLD', name: 'Steel Dynamics', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Starship stainless steel supplier.' },
+  { ticker: 'MSFT', name: 'Microsoft', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Azure-Starlink integration.' },
+  { ticker: 'META', name: 'Meta', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'Benefits from Starlink emerging market connectivity.' },
+  { ticker: 'MELI', name: 'MercadoLibre', tier: 'tier-3', badge: 't3', badgeText: 'Tier 3', thesis: 'LatAm e-commerce benefits from rural connectivity.' }
+].forEach(c => createCompanyCard(c, 'tier3-grid'));
+
+// Losers
+[
+  { ticker: 'IRDM', name: 'Iridium', tier: 'tier-loser', badge: 'loser', badgeText: 'At Risk', thesis: '-32% past year; D2D threat from Starlink; suspended buyback.' },
+  { ticker: 'VSAT', name: 'Viasat', tier: 'tier-loser', badge: 'loser', badgeText: 'At Risk', thesis: 'Legacy GEO broadband being disrupted by LEO constellations.' }
+].forEach(c => createCompanyCard(c, 'losers-grid'));
+
+// ═══════════════ RISK CARDS ═══════════════
+const risks = [
+  { num: 1, title: 'Valuation Risk', severity: 5, text: '60-68x sales for a capital-intensive hardware business. Starlink gross margins were only 7% in 2024. Net profit: $72.7M against $800B valuation.' },
+  { num: 2, title: 'Key Person Risk', severity: 4, text: 'No public succession plan. Musk runs 6+ companies simultaneously. SpaceX\'s bold bets depend entirely on Musk\'s vision and execution.' },
+  { num: 3, title: 'Amazon Kuiper / Leo', severity: 4, text: '$10B+ committed by Amazon. Can bundle with Prime, AWS, Ring, Alexa. Could force Starlink into margin-destroying price war.' },
+  { num: 4, title: 'Capital Intensity', severity: 4, text: 'Starlink satellites have ~5-year lifespan. Estimated $8.2B/year in maintenance capex. Even as launch costs drop, satellite manufacturing becomes 90% of marginal cost.' },
+  { num: 5, title: 'Starship Technical Risk', severity: 3, text: 'First 4 upper stages in 2025 failed. Block 3 booster exploded during ground testing. V3 satellites can only launch on Starship \u2014 delays cascade.' },
+  { num: 6, title: 'Space Debris (Kessler)', severity: 3, text: '144,404 collision avoidance maneuvers in H1 2025. SpaceX is both the largest contributor to orbital congestion and the most exposed to its consequences.' },
+  { num: 7, title: 'Governance Nightmare', severity: 5, text: 'GPU diversion, $2B investment against shareholder vote, DOGE conflicts with $38B in government funding. Multiple investigations and lawsuits.' },
+  { num: 8, title: 'Geopolitical Weaponization', severity: 4, text: 'Terminals deactivated on front lines. Iran jammed 80%+ of traffic. Three Pentagon security clearance probes. China building 40K-satellite counter-constellation.' },
+  { num: 9, title: 'Political Brand Toxicity', severity: 3, text: 'Tesla sales fell 9% in 2025. European sales collapsed (61% Netherlands, 64% Sweden). 52% unfavorable Musk view could affect recruitment and contracts.' },
+  { num: 10, title: 'Post-IPO Selling Pressure', severity: 4, text: '20+ years of accumulated insider positions. Dec 2025 shares at $421 (2x from 5 months prior). Massive incentive for employees and VCs to cash out.' },
+  { num: 11, title: 'xAI Merger Complications', severity: 3, text: 'Adds conglomerate discount risk. Rockets + satellites + social media + AI = confusing equity story. xAI under investigation in Europe, India, Malaysia.' }
+];
+
+const riskGrid = document.getElementById('risk-grid');
+risks.forEach(r => {
+  const card = document.createElement('div');
+  card.className = 'risk-card';
+  let dots = '';
+  for (let i = 0; i < 5; i++) dots += `<div class="severity-dot${i < r.severity ? ' filled' : ''}"></div>`;
+  card.innerHTML = `
+    <div class="risk-num">${String(r.num).padStart(2, '0')}</div>
+    <div class="risk-title">${r.title}</div>
+    <div class="risk-severity"><div class="severity-dots">${dots}</div> ${r.severity}/5</div>
+    <p>${r.text}</p>
+  `;
+  riskGrid.appendChild(card);
+});
+</script>
+</body>
+</html>
