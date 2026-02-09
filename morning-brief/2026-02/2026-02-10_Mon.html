@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — Monday, February 10, 2026 | BigPic Solutions</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap');
+
+:root {
+  --bg-deep: #0a0f1a;
+  --bg-card: rgba(18, 26, 46, 0.88);
+  --bg-card-hover: rgba(26, 39, 68, 0.92);
+  --bg-glass: rgba(255,255,255,0.03);
+  --border-subtle: rgba(232,184,125,0.08);
+  --border-glow: rgba(232,184,125,0.18);
+  --text-primary: #fdf6ec;
+  --text-secondary: #c9d6df;
+  --text-muted: #6b7d8e;
+  --gold: #e8b87d;
+  --gold-light: #f4a261;
+  --gold-dark: #ef8354;
+  --green: #22c55e;
+  --red: #ef4444;
+  --cyan: #22d3ee;
+  --amber: #f59e0b;
+  --violet: #8b5cf6;
+  --rose: #f43f5e;
+  --blue: #3b82f6;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Newsreader', Georgia, serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--gold) var(--bg-deep); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10, 15, 26, 0.95); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 24px; height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-left { display: flex; align-items: center; gap: 8px; }
+.nav-left a.back {
+  color: var(--text-secondary); text-decoration: none;
+  display: flex; align-items: center; transition: var(--transition);
+}
+.nav-left a.back:hover { color: var(--gold); }
+.nav-brand { font-weight: 700; font-size: 16px; color: var(--gold-light); letter-spacing: 1px; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 500;
+  padding: 6px 12px; border-radius: 6px; transition: var(--transition);
+}
+.nav-links a:hover { color: var(--gold); background: rgba(232,184,125,0.08); }
+
+/* HERO */
+.hero {
+  padding: 100px 24px 40px; text-align: center;
+}
+.hero-date { font-family: var(--font-mono); font-size: 14px; color: var(--gold-dark); letter-spacing: 1px; margin-bottom: 12px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px;
+}
+.hero-badge.heavy { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: var(--red); }
+.hero-badge.heavy::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero .subtitle {
+  font-family: var(--font-mono); font-size: 1rem; color: var(--text-secondary);
+  max-width: 700px; margin: 0 auto; line-height: 1.7;
+}
+
+/* SECTIONS */
+section { padding: 60px 0; }
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.section-header h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+.section-header .icon { font-size: 20px; }
+.section-header .tag {
+  margin-left: auto; font-size: 12px; font-weight: 600;
+  padding: 4px 12px; border-radius: 100px;
+  background: rgba(232,184,125,0.1); color: var(--gold);
+  border: 1px solid rgba(232,184,125,0.15);
+}
+
+/* CARDS */
+.card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius); padding: 20px;
+  transition: var(--transition); backdrop-filter: blur(20px);
+}
+.card:hover { border-color: var(--border-glow); box-shadow: 0 0 30px rgba(232,184,125,0.06); }
+
+/* SNAPSHOT GRID */
+.snapshot-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2px; background: var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;
+}
+.snap-cell {
+  background: var(--bg-card); padding: 16px; text-align: center;
+  transition: var(--transition); backdrop-filter: blur(20px);
+}
+.snap-cell:hover { background: var(--bg-card-hover); }
+.snap-cell .label { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.snap-cell .value { font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-primary); }
+.snap-cell .overnight { font-size: 11px; font-weight: 600; margin-top: 2px; }
+.snap-cell .direction { font-size: 10px; color: var(--text-muted); margin-top: 2px; line-height: 1.3; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+.flat { color: var(--text-muted); }
+.mixed { color: var(--amber); }
+
+/* OVERNIGHT CARDS */
+.overnight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.overnight-card { padding: 20px; }
+.overnight-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--gold); }
+.overnight-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* TABLES */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  text-align: left; padding: 10px 12px; font-size: 10px;
+  font-weight: 700; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 1px; border-bottom: 1px solid var(--border-subtle);
+}
+.data-table td {
+  padding: 10px 12px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.data-table tr { transition: var(--transition); }
+.data-table tbody tr:hover { background: rgba(232,184,125,0.04); }
+.data-table .ticker { font-family: var(--font-mono); font-weight: 700; color: var(--gold); }
+.data-table .sector-tag {
+  font-size: 10px; padding: 2px 8px; border-radius: 4px;
+  background: rgba(232,184,125,0.08); color: var(--gold-light); font-weight: 600;
+}
+
+/* PRIORITY TAGS */
+.priority { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.priority.critical { background: rgba(239,68,68,0.12); color: var(--red); }
+.priority.high { background: rgba(244,162,97,0.12); color: var(--gold-light); }
+.priority.medium { background: rgba(245,158,11,0.12); color: var(--amber); }
+
+/* SCENARIO CARDS */
+.scenario-group { margin-bottom: 24px; }
+.scenario-group h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.scenario-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius); padding: 16px; transition: var(--transition);
+}
+.scenario-card:hover { border-color: var(--border-glow); }
+.scenario-card .name { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+.scenario-card .trigger { font-family: var(--font-mono); font-size: 12px; color: var(--gold); margin-bottom: 6px; }
+.scenario-card .reaction { font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 4px; }
+.scenario-card .implication { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+/* PLAYBOOK */
+.playbook-card {
+  background: linear-gradient(135deg, rgba(232,184,125,0.05) 0%, rgba(18,26,46,0.95) 100%);
+  border: 1px solid rgba(232,184,125,0.15); border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.playbook-card .bias { font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
+.playbook-card h4 { font-size: 13px; font-weight: 700; color: var(--text-primary); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.playbook-card ul { list-style: none; padding: 0; }
+.playbook-card li {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+  padding: 4px 0 4px 16px; position: relative;
+}
+.playbook-card li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; }
+.playbook-card .watch li::before { background: var(--cyan); }
+.playbook-card .risk li::before { background: var(--amber); }
+
+/* UPCOMING NOTE */
+.upcoming-note {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.7;
+  padding: 12px 0; margin-top: 8px;
+}
+.upcoming-note strong { color: var(--text-primary); }
+
+/* COLLAPSIBLE SOURCES */
+.sources-toggle {
+  width: 100%; padding: 14px 20px; background: var(--bg-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius);
+  color: var(--text-primary); font-size: 14px; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--font-sans); transition: var(--transition);
+}
+.sources-toggle:hover { border-color: var(--border-glow); }
+.sources-toggle .arrow { transition: transform 0.3s; }
+.sources-toggle.open .arrow { transform: rotate(180deg); }
+.sources-content {
+  max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-top: none; border-radius: 0 0 var(--radius) var(--radius);
+}
+.sources-content.open { max-height: 2000px; }
+.sources-list {
+  padding: 16px 20px; list-style: none; columns: 2; column-gap: 24px;
+}
+.sources-list li { font-size: 12px; color: var(--text-secondary); padding: 4px 0; break-inside: avoid; }
+.sources-list a { color: var(--gold); text-decoration: none; }
+.sources-list a:hover { text-decoration: underline; }
+
+/* SCROLL ANIMATION */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 40px 24px; color: var(--text-muted);
+  font-size: 0.8rem; border-top: 1px solid var(--border-subtle); margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+  .overnight-grid { grid-template-columns: 1fr; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .sources-list { columns: 1; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a href="../index.html" class="back" title="Back to Morning Brief Archive">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <span class="nav-brand">MORNING BRIEF</span>
+  </div>
+  <div class="nav-links">
+    <a href="#snapshot">Snapshot</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#watchlist">Watchlist</a>
+    <a href="#catalysts">Catalysts</a>
+    <a href="#scenarios">Scenarios</a>
+    <a href="#playbook">Playbook</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-date">Monday, February 10, 2026</div>
+  <div class="hero-badge heavy">HEAVY EVENT LOAD</div>
+  <h1>Morning <span class="accent">Brief</span></h1>
+  <p class="subtitle">NFP Tuesday, CPI Thursday, three watchlist earnings this week, NexGen CNSC hearing begins today. Data-heavy week after government shutdown delays.</p>
+</header>
+
+<!-- PRE-MARKET SNAPSHOT -->
+<section id="snapshot">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📊</span>
+      <h2>Pre-Market Snapshot</h2>
+      <span class="tag">Feb 7 Close</span>
+    </div>
+    <div class="snapshot-grid">
+      <div class="snap-cell">
+        <div class="label">S&P 500</div>
+        <div class="value">5,649</div>
+        <div class="overnight up">Futures +0.3%</div>
+        <div class="direction">Positive handoff</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Nasdaq</div>
+        <div class="value">23,031</div>
+        <div class="overnight up">Futures +0.2%</div>
+        <div class="direction">Recovering -1.8% weekly</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Dow Jones</div>
+        <div class="value">50,116</div>
+        <div class="overnight up">Futures +0.2%</div>
+        <div class="direction">Historic 50K close Fri</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Russell 2000</div>
+        <div class="value">~2,870</div>
+        <div class="overnight flat">Futures flat</div>
+        <div class="direction">+7% YTD, leading 2026</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">10Y Yield</div>
+        <div class="value">4.21%</div>
+        <div class="overnight flat">Flat</div>
+        <div class="direction">Awaiting NFP Tuesday</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">DXY</div>
+        <div class="value">97.7</div>
+        <div class="overnight flat">Stable</div>
+        <div class="direction">Multi-month downtrend</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">WTI Crude</div>
+        <div class="value">$63.70</div>
+        <div class="overnight flat">Stable</div>
+        <div class="direction">Iran tension floor</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Gold</div>
+        <div class="value">$4,964</div>
+        <div class="overnight mixed">Near $5K resistance</div>
+        <div class="direction">Risk-off vs Warsh hawk</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Bitcoin</div>
+        <div class="value">$68,700</div>
+        <div class="overnight flat">$68-70K weekend</div>
+        <div class="direction">Holding post -15% crash</div>
+      </div>
+      <div class="snap-cell">
+        <div class="label">Ethereum</div>
+        <div class="value">$2,060</div>
+        <div class="overnight flat">$2,000-2,200 range</div>
+        <div class="direction">-23% WoW, lagging BTC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERNIGHT / GLOBAL -->
+<section id="overnight" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🌏</span>
+      <h2>Overnight / Global</h2>
+    </div>
+    <div class="overnight-grid">
+      <div class="card overnight-card">
+        <h4>Asia (Friday close)</h4>
+        <p>Nikkei +0.8% to 54,254 on yen weakness. Hang Seng -1.1% (property/tech drag). Monday should get positive handoff from strong US Friday.</p>
+      </div>
+      <div class="card overnight-card">
+        <h4>Europe (Friday close)</h4>
+        <p>Stoxx 600 +0.9% to 617. Euro Stoxx 50 +1.2%. Stellantis -24% on $26B restructuring. Monday expected firmer.</p>
+      </div>
+      <div class="card overnight-card">
+        <h4>Weekend</h4>
+        <p>No major geopolitical escalation. Iran risk elevated but stable (Polymarket: 25% Feb strike, 39% by Mar 31). Trump signed EO imposing tariffs on countries buying from Iran.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODAY'S CALENDAR -->
+<section id="calendar" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📅</span>
+      <h2>Today's Calendar</h2>
+      <span class="tag">Low Impact Monday</span>
+    </div>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr><th>Time (ET)</th><th>Release</th><th>Consensus</th><th>Prior</th><th>Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8:30 AM</td><td>December Retail Sales</td><td>TBD</td><td>TBD</td><td><span class="priority medium">Medium</span></td></tr>
+          <tr><td>10:00 AM</td><td>November Factory Orders</td><td>TBD</td><td>TBD</td><td><span class="priority" style="background:rgba(100,116,139,0.12);color:var(--text-muted)">Low</span></td></tr>
+        </tbody>
+      </table>
+      <div class="upcoming-note">
+        Monday is a warm-up session. The real data drops:<br>
+        <strong>Tue 2/11 8:30 AM:</strong> January NFP (delayed by shutdown) — consensus +60K. Carries annual benchmark revisions.<br>
+        <strong>Thu 2/13 8:30 AM:</strong> January CPI (delayed) — inflation trajectory critical for rate path.<br><br>
+        No confirmed Fed speakers Monday.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS WATCHLIST -->
+<section id="watchlist" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <h2>Thesis Watchlist</h2>
+      <span class="tag">This Week</span>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--gold)">Earnings This Week</h3>
+    <div class="card" style="margin-bottom:20px">
+      <table class="data-table">
+        <thead>
+          <tr><th>Date</th><th>Ticker</th><th>Thesis</th><th>Tier</th><th>Consensus</th><th>What to Watch</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tue 2/11</td><td class="ticker">VRT</td><td><span class="sector-tag">AI Infra</span></td><td>T1</td><td>~$1.23 EPS, $2.88B rev</td><td style="font-size:12px;color:var(--text-secondary)">Backlog growth, book-to-bill, power/cooling demand</td></tr>
+          <tr><td>Thu 2/12</td><td class="ticker">ANET</td><td><span class="sector-tag">AI Infra</span></td><td>T1</td><td>$0.76 EPS, ~$2.4B rev</td><td style="font-size:12px;color:var(--text-secondary)">AI campus revenue, 800G commentary. Piper Sandler upgrade</td></tr>
+          <tr><td>Thu 2/13</td><td class="ticker">CCJ</td><td><span class="sector-tag">Nuclear</span></td><td>T1</td><td>TBD</td><td style="font-size:12px;color:var(--text-secondary)">Contract price escalation, McArthur production discipline</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--gold)">Tier 1 Key Levels</h3>
+    <div class="card" style="margin-bottom:20px">
+      <table class="data-table">
+        <thead>
+          <tr><th>Ticker</th><th>Last</th><th>Support</th><th>Resistance</th><th>Setup</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="ticker">NVDA</td><td>~$185</td><td>$167-172</td><td>$207</td><td style="font-size:12px;color:var(--text-secondary)">Oversold near support. BofA: selloff "indiscriminate." Earnings Feb 25</td></tr>
+          <tr><td class="ticker">TSM</td><td>~$349</td><td>$330</td><td>$332 (breached)</td><td style="font-size:12px;color:var(--text-secondary)">Broke out. RSI 76.9 overbought. Watch for pullback</td></tr>
+          <tr><td class="ticker">AVGO</td><td>~$333</td><td>$278</td><td>$412</td><td style="font-size:12px;color:var(--text-secondary)">+7.2% Friday. AI rev on track for 50% of total by FY-end</td></tr>
+          <tr><td class="ticker">VRT</td><td>~$186</td><td>$145-150</td><td>$200</td><td style="font-size:12px;color:var(--text-secondary)">Reports tomorrow. Guided $2.81-2.89B Q4 rev</td></tr>
+          <tr><td class="ticker">CEG</td><td>~$247</td><td>$317-324</td><td>$345-360</td><td style="font-size:12px;color:var(--text-secondary)">-14% on Calpine DOJ/FERC conditions. Reports Feb 19</td></tr>
+          <tr><td class="ticker">CCJ</td><td>~$48-52</td><td>Recent lows</td><td>—</td><td style="font-size:12px;color:var(--text-secondary)">Reports Thursday. Uranium spot pulled back to $85 from $101</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--gold)">Pre-Market Movers (Last Week)</h3>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr><th>Ticker</th><th>Weekly Δ</th><th>Catalyst</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="ticker">PLTR</td><td class="up" style="font-family:var(--font-mono);font-weight:600">+8%</td><td style="font-size:12px;color:var(--text-secondary)">Blowout Q4: $1.41B rev (+70%), FY26 guide crushed estimates</td></tr>
+          <tr><td class="ticker">SMCI</td><td class="up" style="font-family:var(--font-mono);font-weight:600">+15%</td><td style="font-size:12px;color:var(--text-secondary)">Record $12.7B rev (+123%), raised FY guide to $40B+</td></tr>
+          <tr><td class="ticker">MRVL</td><td class="up" style="font-family:var(--font-mono);font-weight:600">+8.2% Fri</td><td style="font-size:12px;color:var(--text-secondary)">Custom silicon rally</td></tr>
+          <tr><td class="ticker">NVDA</td><td class="up" style="font-family:var(--font-mono);font-weight:600">+7.8% Fri</td><td style="font-size:12px;color:var(--text-secondary)">Led Friday chip dip-buy</td></tr>
+          <tr><td class="ticker">CEG</td><td class="down" style="font-family:var(--font-mono);font-weight:600">-14%</td><td style="font-size:12px;color:var(--text-secondary)">Calpine deal: DOJ/FERC requiring divestitures</td></tr>
+          <tr><td class="ticker">AMD</td><td class="down" style="font-family:var(--font-mono);font-weight:600">-5%</td><td style="font-size:12px;color:var(--text-secondary)">Beat on Q4 but Q1 guide disappointed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACHING CATALYSTS -->
+<section id="catalysts" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <h2>Approaching Catalysts</h2>
+    </div>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr><th>Date</th><th>Catalyst</th><th>Tickers</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Feb 9-12</td><td>NexGen CNSC Rook I hearing Part 2</td><td class="ticker">NXE</td><td><span class="priority high">High</span></td></tr>
+          <tr><td>Feb 11</td><td>January NFP (delayed)</td><td>Broad market</td><td><span class="priority critical">Critical</span></td></tr>
+          <tr><td>Feb 13</td><td>January CPI (delayed)</td><td>Broad market</td><td><span class="priority critical">Critical</span></td></tr>
+          <tr><td>Feb 19</td><td>CEG Q4 earnings</td><td class="ticker">CEG</td><td><span class="priority high">High</span></td></tr>
+          <tr><td>Feb 25</td><td>NVDA Q4 earnings</td><td class="ticker">NVDA</td><td><span class="priority critical">Critical</span></td></tr>
+          <tr><td>Feb 26</td><td>MRVL, RKLB, VST earnings</td><td class="ticker">MRVL, RKLB, VST</td><td><span class="priority high">High</span></td></tr>
+          <tr><td>Feb-Mar</td><td>Palisades nuclear restart</td><td>Nuclear sector</td><td><span class="priority medium">Medium</span></td></tr>
+          <tr><td>Mar 6-9</td><td>Artemis II launch (NET)</td><td class="ticker">LUNR, RKLB</td><td><span class="priority medium">Medium</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIO ANALYSIS -->
+<section id="scenarios" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🎯</span>
+      <h2>Scenario Analysis</h2>
+      <span class="tag">Heavy Week</span>
+    </div>
+
+    <div class="scenario-group">
+      <h3>NFP Tuesday — Three Scenarios</h3>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="name" style="color:var(--green)">Soft</div>
+          <div class="trigger">&lt;40K jobs</div>
+          <div class="reaction">Risk-off initially, then rally on rate cut acceleration</div>
+          <div class="implication">June cut locked in, May becomes live</div>
+        </div>
+        <div class="scenario-card">
+          <div class="name" style="color:var(--gold)">Goldilocks</div>
+          <div class="trigger">50-80K jobs</div>
+          <div class="reaction">Mildly positive, confirms soft landing</div>
+          <div class="implication">June remains base case for first cut</div>
+        </div>
+        <div class="scenario-card">
+          <div class="name" style="color:var(--red)">Hot</div>
+          <div class="trigger">&gt;100K jobs</div>
+          <div class="reaction">Hawkish repricing, yields up, equities mixed</div>
+          <div class="implication">June cut probability drops, pushed to Sept</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scenario-group">
+      <h3>CPI Thursday — Two Scenarios</h3>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="name" style="color:var(--green)">Disinflation Resumes</div>
+          <div class="trigger">Core CPI &lt;0.2% MoM</div>
+          <div class="reaction">Rally: validates Jefferson's "stalled but temporary" framing</div>
+          <div class="implication">Rate cuts accelerated</div>
+        </div>
+        <div class="scenario-card">
+          <div class="name" style="color:var(--red)">Sticky Inflation</div>
+          <div class="trigger">Core CPI &gt;0.3% MoM</div>
+          <div class="reaction">Selloff: challenges the entire 2026 easing narrative</div>
+          <div class="implication">10Y back toward 4.30%+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODAY'S PLAYBOOK -->
+<section id="playbook" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📝</span>
+      <h2>Today's Playbook</h2>
+    </div>
+    <div class="playbook-card">
+      <div class="bias">Bias: Cautiously bullish into Tuesday's NFP. Friday's momentum carries over. Monday's data is low-impact.</div>
+
+      <h4>Watch For</h4>
+      <ul class="watch">
+        <li>NexGen CNSC hearing opens today in Saskatoon — any early signals on regulatory sentiment</li>
+        <li>Weekend crypto stability — BTC holding $65-70K range would confirm Thursday was the flush</li>
+        <li>Iran developments — Polymarket odds, diplomatic signals from Oman talks</li>
+        <li>Pre-market activity in VRT/ANET ahead of Tuesday/Thursday reports</li>
+      </ul>
+
+      <h4>Risk to Manage</h4>
+      <ul class="risk">
+        <li>Don't chase Friday's rally too aggressively ahead of NFP/CPI wall</li>
+        <li>CEG dip may be opportunity but wait for Feb 19 earnings clarity on Calpine</li>
+        <li>BTC bounce fragile — funding rates still positive, more longs to liquidate if $65K breaks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🔗</span>
+      <h2>Sources</h2>
+    </div>
+    <button class="sources-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+      15 cited sources — click to expand
+      <span class="arrow">▼</span>
+    </button>
+    <div class="sources-content">
+      <ul class="sources-list">
+        <li><a href="https://www.cnbc.com/2026/02/05/stock-market-today-live-updates.html">CNBC: Stock market Feb 6, 2026</a></li>
+        <li><a href="https://www.cnbc.com/2026/02/04/january-jobs-report-government-shutdown.html">CNBC: January jobs report delayed</a></li>
+        <li><a href="https://www.cnbc.com/2026/02/06/bitcoin-price-today-60000-in-focus.html">CNBC: Bitcoin rebounds above $70K</a></li>
+        <li><a href="https://www.cnbc.com/2026/02/06/asia-markets-live-friday-today-nikkei-kospi-hang-seng-tech-sell-off.html">CNBC: Asia/Europe markets Feb 6</a></li>
+        <li><a href="https://tradingeconomics.com/united-states/currency">Trading Economics: US Dollar</a></li>
+        <li><a href="https://tradingeconomics.com/commodity/gold">Trading Economics: Gold</a></li>
+        <li><a href="https://tradingeconomics.com/commodity/crude-oil">Trading Economics: Crude Oil</a></li>
+        <li><a href="https://fred.stlouisfed.org/series/DGS10">FRED: 10-Year Treasury</a></li>
+        <li><a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html">CME FedWatch Tool</a></li>
+        <li><a href="https://www.canada.ca/en/nuclear-safety-commission/news/2026/02/public-hearing-on-rook-i-uranium-mine-and-mill-project-in-northern-saskatchewan.html">Canada.ca: CNSC Rook I Hearing</a></li>
+        <li><a href="https://www.marketbeat.com/stocks/NYSE/VRT/earnings/">MarketBeat: VRT Earnings</a></li>
+        <li><a href="https://www.marketbeat.com/stocks/NYSE/ANET/earnings/">MarketBeat: ANET Earnings</a></li>
+        <li><a href="https://www.marketbeat.com/stocks/NYSE/CCJ/earnings/">MarketBeat: CCJ Earnings</a></li>
+        <li><a href="https://www.benzinga.com/markets/prediction-markets/26/02/50393117/trump-says-irans-supreme-leader-should-be-very-worried-as-odds-of-us-strike-on-iran-rise">Benzinga: Iran strike odds</a></li>
+        <li><a href="https://fortune.com/2026/02/04/why-saas-stocks-tech-selloff-freefall-like-deepseek-2025-overblown-paradox-irrational/">BofA: Tech selloff analysis</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Morning Brief — Monday, February 10, 2026 &middot; BigPic Solutions &middot; Compiled 2026-02-10
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
