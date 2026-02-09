@@ -29,4 +29,4 @@ Thematic investment research covering high-conviction secular growth sectors, we
 
 ## View Online
 
-Visit [daryllgomas.github.io/bigpic-markets](https://daryllgomas.github.io/bigpic-markets/) for the interactive reports.
+Visit [markets.bigpicsolutions.com](https://markets.bigpicsolutions.com/) for the interactive reports.
