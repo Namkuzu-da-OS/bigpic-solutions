@@ -29,4 +29,4 @@ Thematic investment research covering high-conviction secular growth sectors, we
 
 ## View Online
 
-Visit [namkuzu-da-os.github.io/bigpic-solutions](https://namkuzu-da-os.github.io/bigpic-solutions/) for the interactive reports.
+Visit [namkuzu-da-os.github.io/bigpic-markets](https://namkuzu-da-os.github.io/bigpic-markets/) for the interactive reports.
