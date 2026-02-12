@@ -1,0 +1,27 @@
+[2026-02-12 05:20:01] === Morning Brief Started ===
+[2026-02-12 05:20:01] Date: Thursday, 2026-02-12
+[2026-02-12 05:20:01] Output: morning-brief/2026-02/2026-02-12_Thu.md + 2026-02-12_Thu.html
+[2026-02-12 05:20:01] All dependencies verified
+[2026-02-12 05:20:01] Found 9 sector thesis files
+[2026-02-12 05:20:01] Running Claude [research (attempt 1)] (timeout: 2400s)...
+
+Session terminated, killing shell... ...killed.
+[2026-02-12 06:00:03] ERROR: Claude [research (attempt 1)] timed out (SIGTERM) after 2400s
+[2026-02-12 06:00:03] ERROR: Script exited with code 1
+[2026-02-12 06:00:03] Post-mortem written to /home/spicymeatball/projects/bigpic-markets/morning-brief/logs/postmortem-2026-02-12.md
+[2026-02-12 06:36:53] === Morning Brief Started ===
+[2026-02-12 06:36:53] Date: Thursday, 2026-02-12
+[2026-02-12 06:36:53] Output: morning-brief/2026-02/2026-02-12_Thu.md + 2026-02-12_Thu.html
+[2026-02-12 06:36:53] All dependencies verified
+[2026-02-12 06:36:53] Markdown already exists — skipping research phase
+[2026-02-12 06:36:53] Running Schwab fact-check verification...
+=== Schwab Fact-Check: 2026-02-12_Thu.md ===
+  Looking up 96 symbols...
+  Got quotes for 78 symbols
+
+  1 corrections needed:
+    Russell 2000 Futures: 2,711 → 2,693 (0.7% off)
+
+  1 corrections written to 2026-02-12_Thu.md
+=== Fact-check complete ===
+[2026-02-12 06:37:24] Running Claude [html-publish] (timeout: 900s)...

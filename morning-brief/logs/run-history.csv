@@ -1,0 +1,3 @@
+date,status,duration_seconds,research_size_bytes,html_size_bytes,notes
+2026-02-11,SUCCESS,2089,17363,50105,
+2026-02-12,FAILED,2402,20598,0,exit_code=1
