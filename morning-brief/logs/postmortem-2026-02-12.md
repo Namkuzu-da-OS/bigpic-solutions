@@ -2,39 +2,72 @@
 
 **Status:** FAILED (exit code 1)
 **Start:** 2026-02-12 05:20:01
-**End:** 2026-02-12 06:00:03
+**End:** 2026-02-12 23:53:21
 
 ## Research Files
 - `markets-research.md`: 21888 bytes, last modified 2026-02-12 05:26:09
 - `watchlist-research.md`: 21847 bytes, last modified 2026-02-12 05:26:54
-- `2026-02-12_Thu.md`: 20598 bytes, last modified 2026-02-12 05:35:54
+- `2026-02-12_Thu.md`: 19533 bytes, last modified 2026-02-12 23:36:20
 
 ## Team Members
-- team-lead (team-lead), joined at 05:20:05
-- markets-researcher (general-purpose), joined at 05:20:21
-- watchlist-researcher (general-purpose), joined at 05:20:30
+- No team config found
 
 ## Task Statuses
-- Task 1: markets-researcher — status: in_progress
-- Task 2: watchlist-researcher — status: in_progress
+- No task directory found
 
 ## Inbox Messages
-### team-lead
-- [2026-02-12T13:26:33.643Z] from markets-researcher: Markets research complete - HEAVY depth CPI day
-- [2026-02-12T13:26:41.828Z] from markets-researcher: {"type":"idle_notification","from":"markets-researcher","timestamp":"2026-02-12T13:26:41.828Z","idleReason":"available"}
-- [2026-02-12T13:27:16.070Z] from watchlist-researcher: Watchlist research complete with key findings
-- [2026-02-12T13:27:21.704Z] from watchlist-researcher: {"type":"idle_notification","from":"watchlist-researcher","timestamp":"2026-02-12T13:27:21.704Z","idleReason":"available
+- No inbox messages
 
 ## Log Tail (last 50 lines)
 ```
-[2026-02-12 05:20:01] === Morning Brief Started ===
-[2026-02-12 05:20:01] Date: Thursday, 2026-02-12
-[2026-02-12 05:20:01] Output: morning-brief/2026-02/2026-02-12_Thu.md + 2026-02-12_Thu.html
-[2026-02-12 05:20:01] All dependencies verified
-[2026-02-12 05:20:01] Found 9 sector thesis files
-[2026-02-12 05:20:01] Running Claude [research (attempt 1)] (timeout: 2400s)...
+[2026-02-12 23:36:07] === Morning Brief Started ===
+[2026-02-12 23:36:07] Date: Thursday, 2026-02-12
+[2026-02-12 23:36:07] Output: morning-brief/2026-02/2026-02-12_Thu.md + 2026-02-12_Thu.html
+[2026-02-12 23:36:07] All dependencies verified
+[2026-02-12 23:36:07] Briefing file already exists — skipping data collection
+[2026-02-12 23:36:07] Markdown already exists — skipping report writing
+[2026-02-12 23:36:07] Running Schwab fact-check verification...
+=== Fact-Check: 2026-02-12_Thu.md ===
 
-Session terminated, killing shell... ...killed.
-[2026-02-12 06:00:03] ERROR: Claude [research (attempt 1)] timed out (SIGTERM) after 2400s
-[2026-02-12 06:00:03] ERROR: Script exited with code 1
+--- Live Schwab API checks ---
+  Looking up 96 symbols...
+  Got quotes for 79 symbols
+
+--- Database cross-checks (market_date=2026-02-12) ---
+  No database discrepancies found
+
+  1 total corrections needed:
+    S&P 500 Futures change: +0.36% → -1.71%
+
+  1 corrections written to 2026-02-12_Thu.md
+=== Fact-check complete ===
+[2026-02-12 23:36:20] Running Claude [html-publish] (timeout: 900s)...
+[0m[31mError: Claude Code cannot be launched inside another Claude Code session.
+Nested sessions share runtime resources and will crash all active sessions.
+To bypass this check, unset the CLAUDECODE environment variable.[0m
+[2026-02-12 23:36:21] Claude [html-publish] finished successfully
+[2026-02-12 23:36:21] ERROR: HTML file not found at /home/spicymeatball/projects/bigpic-markets/morning-brief/2026-02/2026-02-12_Thu.html
+[2026-02-12 23:36:22] ERROR: Script exited with code 1
+[2026-02-12 23:36:22] Post-mortem written to /home/spicymeatball/projects/bigpic-markets/morning-brief/logs/postmortem-2026-02-12.md
+[2026-02-12 23:43:05] === Morning Brief Started ===
+[2026-02-12 23:43:05] Date: Thursday, 2026-02-12
+[2026-02-12 23:43:05] Output: morning-brief/2026-02/2026-02-12_Thu.md + 2026-02-12_Thu.html
+[2026-02-12 23:43:05] All dependencies verified
+[2026-02-12 23:43:05] Briefing file already exists — skipping data collection
+[2026-02-12 23:43:05] Markdown already exists — skipping report writing
+[2026-02-12 23:43:05] Running Schwab fact-check verification...
+=== Fact-Check: 2026-02-12_Thu.md ===
+
+--- Live Schwab API checks ---
+  Looking up 96 symbols...
+  Got quotes for 79 symbols
+
+--- Database cross-checks (market_date=2026-02-12) ---
+  No database discrepancies found
+
+  All claims within tolerance — no corrections needed
+=== Fact-check complete ===
+[2026-02-12 23:43:19] Running Claude [html-publish] (timeout: 900s)...
+[2026-02-12 23:53:21] ERROR: Claude [html-publish] exited with code 143
+[2026-02-12 23:53:21] ERROR: Script exited with code 1
 ```

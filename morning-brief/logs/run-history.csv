@@ -1,3 +1,9 @@
 date,status,duration_seconds,research_size_bytes,html_size_bytes,notes
 2026-02-11,SUCCESS,2089,17363,50105,
 2026-02-12,FAILED,2402,20598,0,exit_code=1
+2026-02-12,SUCCESS,393,20598,57766,
+2026-02-12,FAILED,15,19533,0,exit_code=1
+2026-02-12,FAILED,616,19533,0,exit_code=1
+2026-02-13,FAILED,25,0,0,exit_code=1
+2026-02-13,FAILED,900,0,0,exit_code=1
+2026-02-13,FAILED,377,0,0,exit_code=1
