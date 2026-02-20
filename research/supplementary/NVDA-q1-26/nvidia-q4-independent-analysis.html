@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVDA Q4 FY2026 — Independent Analysis | BigPic Solutions</title>
+<meta name="description" content="Independent supply-chain analysis of NVIDIA Q4 FY2026 earnings. Bottom-up triangulation via TSMC, SK Hynix, and hyperscaler capex data.">
+<meta property="og:title" content="NVDA Q4 FY2026 — Independent Analysis">
+<meta property="og:description" content="Independent supply-chain analysis of NVIDIA Q4 FY2026 earnings. Bottom-up triangulation via TSMC, SK Hynix, and hyperscaler capex data.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="BigPic Solutions Research">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NVDA Q4 FY2026 — Independent Analysis">
+<meta name="twitter:description" content="Independent supply-chain analysis of NVIDIA Q4 FY2026 earnings. Bottom-up triangulation via TSMC, SK Hynix, and hyperscaler capex data.">
+<meta property="og:image" content="https://markets.bigpicsolutions.com/research/supplementary/NVDA-q1-26/nvda-thumb.jpg">
+<meta property="og:url" content="https://markets.bigpicsolutions.com/research/supplementary/NVDA-q1-26/nvidia-q4-independent-analysis.html">
+<meta name="twitter:image" content="https://markets.bigpicsolutions.com/research/supplementary/NVDA-q1-26/nvda-thumb.jpg">
+<style>
+:root {
+  --bg: #0a0e17;
+  --card: #111827;
+  --card-border: #1e293b;
+  --accent: #76b900;
+  --accent-dim: #4a7a00;
+  --bull: #22c55e;
+  --bear: #ef4444;
+  --neutral: #f59e0b;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-muted: #64748b;
+  --highlight: #1e3a5f;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 72px 20px 20px;
+}
+
+/* Header */
+.header { margin-bottom: 24px; }
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.header-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Verdict Banner */
+.verdict-banner {
+  background: linear-gradient(90deg, rgba(34,197,94,0.07), transparent);
+  border: 1px solid rgba(34,197,94,0.19);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.verdict-banner-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.verdict-banner-text {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--bull);
+  margin-top: 2px;
+}
+
+.verdict-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.verdict-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.verdict-badge.bull {
+  color: var(--bull);
+  background: rgba(34,197,94,0.09);
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.verdict-badge.neutral {
+  color: var(--neutral);
+  background: rgba(245,158,11,0.09);
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid var(--card-border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--text-dim);
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Tab Content */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Grid Layout */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.full-width { grid-column: 1 / -1; }
+
+/* Section Card */
+.section-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-top: 3px solid var(--accent);
+}
+
+.section-card.bull-accent { border-top-color: var(--bull); }
+.section-card.bear-accent { border-top-color: var(--bear); }
+.section-card.neutral-accent { border-top-color: var(--neutral); }
+
+.section-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-card h3 .icon { font-size: 18px; }
+
+.section-card.bull-accent h3 { color: var(--bull); }
+.section-card.bear-accent h3 { color: var(--bear); }
+.section-card.neutral-accent h3 { color: var(--neutral); }
+
+.section-intro {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+/* Data Row */
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.data-row-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.data-row-value {
+  text-align: right;
+}
+
+.data-row-value span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.data-row-value span.bull { color: var(--bull); }
+.data-row-value span.bear { color: var(--bear); }
+.data-row-value span.neutral { color: var(--neutral); }
+.data-row-value span.accent { color: var(--accent); }
+
+.data-row-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Signal Bar */
+.signal-bar { margin-bottom: 12px; }
+
+.signal-bar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.signal-bar-label {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.signal-bar-value {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.signal-bar-value.bull { color: var(--bull); }
+.signal-bar-value.bear { color: var(--bear); }
+.signal-bar-value.neutral { color: var(--neutral); }
+.signal-bar-value.accent { color: var(--accent); }
+
+.signal-bar-track {
+  height: 6px;
+  background: var(--card-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.signal-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.signal-bar-fill.bull { background: linear-gradient(90deg, rgba(34,197,94,0.53), var(--bull)); }
+.signal-bar-fill.bear { background: linear-gradient(90deg, rgba(239,68,68,0.53), var(--bear)); }
+.signal-bar-fill.neutral { background: linear-gradient(90deg, rgba(245,158,11,0.53), var(--neutral)); }
+.signal-bar-fill.accent { background: linear-gradient(90deg, rgba(118,185,0,0.53), var(--accent)); }
+
+/* Signal Boxes */
+.signal-box {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.signal-box.bull {
+  background: rgba(34,197,94,0.06);
+  color: var(--bull);
+  border-left: 3px solid var(--bull);
+}
+
+.signal-box.accent {
+  background: rgba(118,185,0,0.08);
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+}
+
+/* Signal Group */
+.signal-group { margin-bottom: 20px; }
+
+.signal-group-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.signal-group-title.accent { color: var(--accent); }
+.signal-group-title.neutral { color: var(--neutral); }
+.signal-group-title.bull { color: var(--bull); }
+.signal-group-title.dim { color: var(--text-dim); }
+
+/* Timeline */
+.timeline-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+.timeline-dot.bull { color: var(--bull); }
+.timeline-dot.accent { color: var(--accent); }
+
+/* Verdict Section */
+.verdict-content {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+.verdict-content p { margin-bottom: 12px; }
+.verdict-content p:first-child { margin-top: 0; }
+
+/* Confidence Title */
+.confidence-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Scenario Cards */
+.scenario {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.scenario.bull {
+  background: rgba(34,197,94,0.06);
+  border: 1px solid rgba(34,197,94,0.15);
+}
+
+.scenario.neutral {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+}
+
+.scenario.bear {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.15);
+}
+
+.scenario-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-title.bull { color: var(--bull); }
+.scenario-title.neutral { color: var(--neutral); }
+.scenario-title.bear { color: var(--bear); }
+
+/* Data Sources */
+.data-sources {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--highlight);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px 0;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ═══════════════ SITE NAV ═══════════════ */
+.bigpic-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10000;
+  background: rgba(10, 14, 23, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(118, 185, 0, 0.08);
+  padding: 0 24px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.bigpic-nav a { text-decoration: none; }
+.bigpic-nav .nav-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #e2e8f0, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 32px;
+}
+.bigpic-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.bigpic-nav .nav-link {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+.bigpic-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.bigpic-nav .nav-dropdown { position: relative; }
+.bigpic-nav .nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(10, 14, 23, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(118, 185, 0, 0.1);
+  border-radius: 10px;
+  padding: 6px;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+.bigpic-nav .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.bigpic-nav .nav-dropdown-menu a {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+.bigpic-nav .nav-dropdown-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+/* ═══════════════ SHARE BUTTON ═══════════════ */
+.share-wrapper {
+  position: fixed;
+  top: 62px;
+  right: 1.5rem;
+  z-index: 9999;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(118, 185, 0, 0.25);
+  border-radius: 6px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.share-btn:hover {
+  background: rgba(10, 14, 23, 0.95);
+  border-color: rgba(118, 185, 0, 0.5);
+}
+.share-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.share-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 200px;
+  background: rgba(10, 14, 23, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(118, 185, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.share-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-decoration: none;
+}
+.share-option:hover {
+  background: rgba(118, 185, 0, 0.12);
+  color: var(--accent);
+}
+.share-option svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.share-option .x-logo {
+  fill: var(--text-dim);
+  stroke: none;
+}
+.share-option:hover .x-logo {
+  fill: var(--accent);
+}
+.share-option .link-icon {
+  fill: none;
+  stroke: var(--text-dim);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.share-option:hover .link-icon {
+  stroke: var(--accent);
+}
+.share-copied {
+  font-size: 0.7rem;
+  color: var(--bull);
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+.share-copied.show {
+  padding: 0.3rem 0.75rem;
+  height: auto;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .verdict-banner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav class="bigpic-nav">
+  <a href="../../../index.html" class="nav-brand">BigPic Solutions</a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a class="nav-link" href="#">Sectors &#9662;</a>
+      <div class="nav-dropdown-menu">
+        <a href="../../../research/ai/report.html">AI Infrastructure</a>
+        <a href="../../../research/nuclear/report.html">Nuclear Energy</a>
+        <a href="../../../research/space/report.html">Space</a>
+        <a href="../../../research/quantum/report.html">Quantum Computing</a>
+        <a href="../../../research/robotics/report.html">Robotics &amp; Automation</a>
+        <a href="../../../research/cybersecurity/report.html">Cybersecurity</a>
+        <a href="../../../research/critical-minerals/report.html">Critical Minerals</a>
+        <a href="../../../research/defense/report.html">Defense &amp; Aerospace</a>
+        <a href="../../../research/energy-storage/report.html">Energy Storage</a>
+      </div>
+    </div>
+    <a class="nav-link" href="../../../eagle-eye/">Eagle Eye</a>
+  </div>
+</nav>
+
+<!-- SHARE -->
+<div class="share-wrapper">
+  <button class="share-btn" onclick="toggleShare()" aria-label="Share this article">
+    <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+    SHARE
+  </button>
+  <div class="share-dropdown" id="shareDropdown">
+    <button class="share-option" onclick="copyLink()">
+      <svg class="link-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      Copy link
+    </button>
+    <a class="share-option" id="shareX" href="#" target="_blank" rel="noopener noreferrer" onclick="shareToX()">
+      <svg class="x-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share on X
+    </a>
+    <div class="share-copied" id="shareCopied">Link copied!</div>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-top">
+    <div class="header-icon">◈</div>
+    <div>
+      <h1>NVDA Q4 FY2026 — Independent Analysis</h1>
+      <div class="header-sub">BIGPIC SOLUTIONS × PROJECT MERIDIAN | Feb 19, 2026 | Earnings: Feb 25 AMC</div>
+    </div>
+  </div>
+
+  <div class="verdict-banner">
+    <div>
+      <span class="verdict-banner-label">INDEPENDENT VERDICT</span>
+      <div class="verdict-banner-text">BEAT ON REVENUE &amp; EPS — HIGH CONFIDENCE</div>
+    </div>
+    <div class="verdict-badges">
+      <span class="verdict-badge bull">REV: $66.5-68B</span>
+      <span class="verdict-badge bull">EPS: $1.50-1.58</span>
+      <span class="verdict-badge neutral">GUIDANCE: WILD CARD</span>
+    </div>
+  </div>
+</div>
+
+<!-- Tab Navigation -->
+<div class="tab-nav">
+  <button class="tab-btn active" data-tab="mosaic">Data Mosaic</button>
+  <button class="tab-btn" data-tab="supply">Supply Chain</button>
+  <button class="tab-btn" data-tab="verdict">Verdict</button>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TAB 1: DATA MOSAIC
+     ═══════════════════════════════════════ -->
+<div class="tab-content active" id="tab-mosaic">
+  <div class="grid-2">
+
+    <!-- TSMC Fab Data -->
+    <div class="section-card">
+      <h3><span class="icon">🏭</span> TSMC Fabrication Data (Primary Source)</h3>
+      <p class="section-intro">TSMC is NVIDIA's sole foundry. Their revenue is the closest proxy to actual NVIDIA chip production.</p>
+      <div class="data-row">
+        <span class="data-row-label">TSMC Q4'25 Revenue</span>
+        <div class="data-row-value">
+          <span class="bull">$33.7B</span>
+          <div class="data-row-subtext">+25.5% YoY, beat guidance</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">TSMC Jan 2026 Revenue</span>
+        <div class="data-row-value">
+          <span class="bull">NT$401.3B (~$12.7B)</span>
+          <div class="data-row-subtext">+36.8% YoY, +19.8% MoM</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Advanced Nodes (≤7nm)</span>
+        <div class="data-row-value">
+          <span class="accent">77% of Q4 revenue</span>
+          <div class="data-row-subtext">3nm: 28% | 5nm: 35% | 7nm: 14%</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">HPC Revenue Share</span>
+        <div class="data-row-value">
+          <span class="accent">55% of Q4</span>
+          <div class="data-row-subtext">This is where NVIDIA GPUs live</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">AI Accelerator Rev (FY25)</span>
+        <div class="data-row-value">
+          <span class="bull">High-teens % of total</span>
+          <div class="data-row-subtext">CAGR: mid-to-high 50s% through 2029</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q1 2026 Guidance</span>
+        <div class="data-row-value">
+          <span class="bull">$34.6-35.8B</span>
+          <div class="data-row-subtext">+38% YoY at midpoint</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Advanced Packaging Share</span>
+        <div class="data-row-value">
+          <span>~10%+ of FY25 (8% in FY24)</span>
+          <div class="data-row-subtext">CoWoS — expected low-teens % in 2026</div>
+        </div>
+      </div>
+      <div class="signal-box bull">
+        <strong>SIGNAL:</strong> TSMC's advanced node revenue and HPC mix both accelerating. Jan 2026 monthly rev at +36.8% YoY is a Q1 leading indicator showing NO deceleration. AI accelerator revenue growing at 50%+ CAGR. All signals confirm maximum utilization of NVIDIA-relevant capacity.
+      </div>
+    </div>
+
+    <!-- SK Hynix HBM Data -->
+    <div class="section-card">
+      <h3><span class="icon">💾</span> SK Hynix HBM Memory Data (Primary Source)</h3>
+      <p class="section-intro">SK Hynix is the dominant HBM supplier for NVIDIA. Every GPU needs HBM — their shipments directly constrain NVIDIA output.</p>
+      <div class="data-row">
+        <span class="data-row-label">SK Hynix Q4'25 Revenue</span>
+        <div class="data-row-value">
+          <span class="bull">KRW 32.8T (~$23B)</span>
+          <div class="data-row-subtext">+66% YoY, +34% QoQ — ALL-TIME HIGH</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q4 Operating Margin</span>
+        <div class="data-row-value">
+          <span class="bull">58%</span>
+          <div class="data-row-subtext">Up from 47% in Q3. Record profitability</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">HBM Revenue Growth</span>
+        <div class="data-row-value">
+          <span class="bull">&gt;2x YoY</span>
+          <div class="data-row-subtext">HBM3E 12Hi driving bulk of growth</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">DDR5 128GB+ Shipments</span>
+        <div class="data-row-value">
+          <span class="bull">+50% QoQ in Q4</span>
+          <div class="data-row-subtext">Server memory demand surging</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Customer DRAM Inventory</span>
+        <div class="data-row-value">
+          <span class="accent">Decreased overall</span>
+          <div class="data-row-subtext">Especially for server customers</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">HBM4 Status</span>
+        <div class="data-row-value">
+          <span class="accent">Mass production underway</span>
+          <div class="data-row-subtext">First in industry. Shipping to customers</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">2026 DRAM Demand Outlook</span>
+        <div class="data-row-value">
+          <span>&gt;20% growth expected</span>
+          <div class="data-row-subtext">NAND: high-teens growth</div>
+        </div>
+      </div>
+      <div class="signal-box bull">
+        <strong>SIGNAL:</strong> SK Hynix posted ALL-TIME record revenue and profit. HBM revenue more than doubled. Customer inventory declined (meaning demand &gt; supply). They literally cannot meet all customer requests. This is the strongest possible HBM signal for NVIDIA Q4.
+      </div>
+    </div>
+
+    <!-- Hyperscaler Capex -->
+    <div class="section-card">
+      <h3><span class="icon">📊</span> Hyperscaler Capex Actuals (Bottom-Up)</h3>
+      <p class="section-intro">These are the ACTUAL buyers. Their spend IS NVIDIA's revenue pipeline.</p>
+      <div class="data-row">
+        <span class="data-row-label">Combined Big 4 Q4'25 Capex</span>
+        <div class="data-row-value">
+          <span class="bull">~$88B+ (record)</span>
+          <div class="data-row-subtext">Amazon, Google, Microsoft, Meta</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Amazon 2026 Capex Guide</span>
+        <div class="data-row-value">
+          <span class="bull">$200B</span>
+          <div class="data-row-subtext">Up from $125B in 2025 (+60%)</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Alphabet 2026 Capex Guide</span>
+        <div class="data-row-value">
+          <span class="bull">$175-185B</span>
+          <div class="data-row-subtext">~2x 2025 spend of $91-93B</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Meta 2026 Total Expenses</span>
+        <div class="data-row-value">
+          <span class="bull">$115-135B</span>
+          <div class="data-row-subtext">Including Superintelligence Labs</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Microsoft FY26 Capex</span>
+        <div class="data-row-value">
+          <span class="bull">~$140B+ run-rate</span>
+          <div class="data-row-subtext">$72B in H1 FY26 alone</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Combined 2026 Guidance</span>
+        <div class="data-row-value">
+          <span class="bull">$650-700B</span>
+          <div class="data-row-subtext">Up ~60-70% from 2025's ~$410B</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">% Tied to AI Infrastructure</span>
+        <div class="data-row-value">
+          <span>~75%</span>
+          <div class="data-row-subtext">= ~$450-525B flowing to AI</div>
+        </div>
+      </div>
+      <div class="signal-box bull">
+        <strong>SIGNAL:</strong> Every hyperscaler RAISED guidance. Wall Street initially expected +19% capex growth in 2026 — actual guidance is +60-70%. This isn't moderation, it's acceleration. NVIDIA captures the lion's share of AI GPU spend.
+      </div>
+    </div>
+
+    <!-- NVIDIA's Own Numbers -->
+    <div class="section-card">
+      <h3><span class="icon">🔢</span> NVIDIA's Own Numbers &amp; Guidance Math</h3>
+      <p class="section-intro">Working backward from NVIDIA's own guidance and historical beat patterns.</p>
+      <div class="data-row">
+        <span class="data-row-label">Q4 Revenue Guidance</span>
+        <div class="data-row-value">
+          <span>$65B ±2%</span>
+          <div class="data-row-subtext">Range: $63.7B - $66.3B</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q3 Actual vs Guidance</span>
+        <div class="data-row-value">
+          <span class="bull">Beat by $2B+</span>
+          <div class="data-row-subtext">$57B actual vs ~$54.9B expected</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Last 12 Quarters</span>
+        <div class="data-row-value">
+          <span>12 consecutive beats</span>
+          <div class="data-row-subtext">Avg beat magnitude declining (better guidance)</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q3 Data Center Revenue</span>
+        <div class="data-row-value">
+          <span class="accent">$51.2B (89.8% of total)</span>
+          <div class="data-row-subtext">+66% YoY. Networking &gt;2x</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q3 Inventory</span>
+        <div class="data-row-value">
+          <span class="neutral">$19.8B (+32% QoQ)</span>
+          <div class="data-row-subtext">⚠️ Watch this — could be build or bloat</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Q3 A/R</span>
+        <div class="data-row-value">
+          <span class="neutral">$33.4B (+$5.7B QoQ)</span>
+          <div class="data-row-subtext">⚠️ 53 DSO, up from 46 DSO in Q2</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">Blackwell Pipeline</span>
+        <div class="data-row-value">
+          <span class="bull">$350B remaining through CY2026</span>
+          <div class="data-row-subtext">Of $500B total Blackwell+Rubin visibility</div>
+        </div>
+      </div>
+      <div class="data-row">
+        <span class="data-row-label">China Data Center Rev</span>
+        <div class="data-row-value">
+          <span class="neutral">Guided at $0</span>
+          <div class="data-row-subtext">Any positive = upside surprise</div>
+        </div>
+      </div>
+      <div class="signal-box accent">
+        <strong>OUR MATH:</strong> Guidance midpoint ($65B) + typical $2B beat = $67B. At 75% gross margin and ~58% operating margin, EPS lands ~$1.50-$1.58. The inventory and A/R buildup in Q3 is the one yellow flag — but in context of Blackwell ramp and 53-day DSO (still reasonable for the scale), it's likely production buildup, not demand weakness.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TAB 2: SUPPLY CHAIN
+     ═══════════════════════════════════════ -->
+<div class="tab-content" id="tab-supply">
+  <div class="grid-2">
+
+    <!-- Supply Chain Evidence Map -->
+    <div class="section-card">
+      <h3><span class="icon">🔗</span> Supply Chain Evidence Map</h3>
+      <p class="section-intro">Triangulating NVIDIA demand through independent supply chain data points.</p>
+
+      <div class="signal-group">
+        <div class="signal-group-title accent">FABRICATION (TSMC)</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Advanced node utilization</span>
+            <span class="signal-bar-value bull">10/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:100%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">HPC revenue acceleration</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">CoWoS packaging demand</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+      </div>
+
+      <div class="signal-group">
+        <div class="signal-group-title accent">MEMORY (SK Hynix / Micron)</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">HBM shipment volume</span>
+            <span class="signal-bar-value bull">10/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:100%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">HBM pricing power</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Customer inventory levels</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+      </div>
+
+      <div class="signal-group">
+        <div class="signal-group-title accent">ASSEMBLY &amp; SYSTEMS</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Foxconn rack shipment projections</span>
+            <span class="signal-bar-value bull">8/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:80%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">GB300 transition from GB200</span>
+            <span class="signal-bar-value bull">8/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:80%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Liquid cooling demand (Vertiv)</span>
+            <span class="signal-bar-value bull">8/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="signal-group" style="margin-bottom:0">
+        <div class="signal-group-title neutral">RISK SIGNALS</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">A/R growth outpacing revenue</span>
+            <span class="signal-bar-value neutral">6/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:60%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">DSO rising (53 days, up from 46)</span>
+            <span class="signal-bar-value neutral">5/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:50%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">China export uncertainty</span>
+            <span class="signal-bar-value bear">4/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bear" style="width:40%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- Blackwell Ramp Timeline -->
+      <div class="section-card">
+        <h3><span class="icon">⚡</span> Blackwell Ramp Timeline</h3>
+        <div class="timeline-item">
+          <span class="timeline-dot bull">●</span>
+          <span><strong style="color:var(--text)">Q3 FY26 (Aug-Oct):</strong> GB200 in full volume. GB300 "crossed over" to 2/3 of Blackwell rev</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot bull">●</span>
+          <span><strong style="color:var(--text)">Q4 FY26 (Nov-Jan):</strong> GB300 dominant. 60K rack target for CY2026. Full NVL72 production</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot accent">●</span>
+          <span><strong style="color:var(--text)">Q1 FY27 (Feb-Apr):</strong> Rubin reveal at GTC March. Blackwell Ultra at peak. HBM4 ramping</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot accent">●</span>
+          <span><strong style="color:var(--text)">H2 CY2026:</strong> Rubin (R200) shipping. JP Morgan: 5.7M Rubin GPUs projected for 2026</span>
+        </div>
+        <div class="signal-box accent">
+          <strong>KEY INSIGHT:</strong> Q4 is the sweet spot — GB300 is in full swing, demand is established, and there's no transition gap yet. The Blackwell-to-Rubin handoff doesn't create a revenue air pocket until H2 2026 at earliest.
+        </div>
+      </div>
+
+      <!-- Independent Revenue Build -->
+      <div class="section-card neutral-accent">
+        <h3><span class="icon">🧮</span> Independent Revenue Build</h3>
+        <p class="section-intro">Our bottom-up estimate vs. consensus</p>
+        <div class="data-row">
+          <span class="data-row-label">Data Center (our est.)</span>
+          <div class="data-row-value">
+            <span class="bull">$59-61B</span>
+            <div class="data-row-subtext">Q3 was $51.2B. +15-19% QoQ</div>
+          </div>
+        </div>
+        <div class="data-row">
+          <span class="data-row-label">Gaming</span>
+          <div class="data-row-value">
+            <span>~$4.0-4.3B</span>
+            <div class="data-row-subtext">Stable. RTX 50 series launched</div>
+          </div>
+        </div>
+        <div class="data-row">
+          <span class="data-row-label">Auto / Pro Viz / OEM</span>
+          <div class="data-row-value">
+            <span>~$2.5-3.0B</span>
+            <div class="data-row-subtext">Steady contributors</div>
+          </div>
+        </div>
+        <div class="data-row">
+          <span class="data-row-label">TOTAL REVENUE (Our Est.)</span>
+          <div class="data-row-value">
+            <span class="bull">$66.5-68.0B</span>
+            <div class="data-row-subtext">vs consensus $65-66B</div>
+          </div>
+        </div>
+        <div class="data-row">
+          <span class="data-row-label">Gross Margin (Our Est.)</span>
+          <div class="data-row-value">
+            <span class="bull">74.5-75.5%</span>
+            <div class="data-row-subtext">GB300 full-rack carries higher margins</div>
+          </div>
+        </div>
+        <div class="data-row">
+          <span class="data-row-label">EPS (Our Est.)</span>
+          <div class="data-row-value">
+            <span class="bull">$1.50-1.58</span>
+            <div class="data-row-subtext">vs consensus ~$1.46-1.53</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TAB 3: VERDICT
+     ═══════════════════════════════════════ -->
+<div class="tab-content" id="tab-verdict">
+  <div class="grid-2">
+
+    <!-- Confidence Assessment -->
+    <div class="section-card">
+      <h3><span class="icon">🎯</span> Confidence Assessment</h3>
+
+      <div class="signal-group">
+        <div class="confidence-title" style="color:var(--bull)">Q4 EARNINGS BEAT</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Revenue beat probability</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">EPS beat probability</span>
+            <span class="signal-bar-value bull">9/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:90%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Gross margin beat probability</span>
+            <span class="signal-bar-value bull">8/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bull" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="signal-group">
+        <div class="confidence-title" style="color:var(--neutral)">FORWARD GUIDANCE (THE REAL EVENT)</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Q1 FY27 guidance beat probability</span>
+            <span class="signal-bar-value neutral">7/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:70%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Full-year commentary strength</span>
+            <span class="signal-bar-value neutral">7/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:70%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">China revenue upside surprise</span>
+            <span class="signal-bar-value bear">3/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bear" style="width:30%"></div></div>
+        </div>
+      </div>
+
+      <div class="signal-group" style="margin-bottom:0">
+        <div class="confidence-title" style="color:var(--text-dim)">STOCK PRICE REACTION</div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Probability of positive reaction</span>
+            <span class="signal-bar-value neutral">6/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:60%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Magnitude if positive</span>
+            <span class="signal-bar-value neutral">5/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill neutral" style="width:50%"></div></div>
+        </div>
+        <div class="signal-bar">
+          <div class="signal-bar-header">
+            <span class="signal-bar-label">Risk of sell-the-news</span>
+            <span class="signal-bar-value bear">5/10</span>
+          </div>
+          <div class="signal-bar-track"><div class="signal-bar-fill bear" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- The Independent Verdict -->
+      <div class="section-card bull-accent">
+        <h3><span class="icon">⚖️</span> The Independent Verdict</h3>
+        <div class="verdict-content">
+          <p><strong style="color:var(--bull)">Revenue &amp; EPS will beat consensus.</strong> The supply chain evidence is overwhelming and unambiguous:</p>
+          <p><strong style="color:var(--text)">1. TSMC confirms maximum throughput.</strong> Advanced nodes at 77%, HPC at 55% of rev, AI accelerator CAGR in the 50s%. Jan 2026 revenue shows NO deceleration — +36.8% YoY.</p>
+          <p><strong style="color:var(--text)">2. SK Hynix confirms insatiable HBM demand.</strong> ALL-TIME records across every metric. HBM revenue doubled. Customer inventory declining. They can't fill all orders. If memory suppliers are capacity-constrained, NVIDIA is shipping everything they can make.</p>
+          <p><strong style="color:var(--text)">3. Hyperscaler capex is accelerating, not moderating.</strong> The 2026 guidance of $650-700B combined is +60-70% above 2025 actuals. Wall Street consistently underestimates this spend (expected +19%, actual was +64% in 2025). Every major buyer raised guidance.</p>
+          <p><strong style="color:var(--text)">4. NVIDIA's own math works.</strong> Guidance midpoint + historical beat pattern = $66.5-68B. Blackwell GB300 at full ramp with higher ASPs and full-rack solutions.</p>
+        </div>
+      </div>
+
+      <!-- Risk Factors -->
+      <div class="section-card bear-accent">
+        <h3><span class="icon">⚠️</span> Risk Factors (What Could Go Wrong)</h3>
+        <div class="verdict-content">
+          <p><strong style="color:var(--bear)">The beat is NOT the risk. Guidance is.</strong></p>
+          <p><strong style="color:var(--neutral)">1. Inventory quality.</strong> $19.8B in Q3 inventory (+32% QoQ). If Q4 shows further buildup despite strong revenue, it suggests production ahead of delivery — fine — or channel stuffing — not fine.</p>
+          <p><strong style="color:var(--neutral)">2. Working capital strain.</strong> A/R jumped $5.7B QoQ to $33.4B while DSO rose from 46 to 53 days. Concentrated customer base (top 4-5 = 40-45% of DC rev). If any hyperscaler delays payment timing, it amplifies this risk.</p>
+          <p><strong style="color:var(--neutral)">3. Circular AI economy risk.</strong> VC-funded startups buying cloud, cloud buying GPUs, GPU revenue flowing back to AI ecosystem. Real demand or capital recycling? Watch non-hyperscaler customer commentary.</p>
+          <p><strong style="color:var(--bear)">4. Stock is priced for perfection.</strong> IV at 5.7%, implied move ±6.2%. Sideways for 3 months. A beat is expected. Guidance needs to WOW (&gt;$75B for Q1 FY27) or the stock may not move.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trading Implications -->
+    <div class="full-width">
+      <div class="section-card">
+        <h3><span class="icon">💡</span> Trading Implications</h3>
+        <div class="grid-3">
+          <div class="scenario bull">
+            <div class="scenario-title bull">BULL SCENARIO (55%)</div>
+            Rev $67B+, guidance $73-75B+ for Q1. Gross margins at 75%+. Commentary on Rubin demand and Blackwell Ultra momentum. Any positive China signal. Stock +5-8%.
+          </div>
+          <div class="scenario neutral">
+            <div class="scenario-title neutral">BASE SCENARIO (30%)</div>
+            Rev $66B, guidance ~$71B (in-line). Margins meet expectations. No China upside. Solid but not spectacular. Stock ±2% — sell-the-news risk.
+          </div>
+          <div class="scenario bear">
+            <div class="scenario-title bear">BEAR SCENARIO (15%)</div>
+            Guidance below $70B. Margin compression from Blackwell ramp costs. Inventory continues to surge. Cash flow quality concerns. Stock -8-12%.
+          </div>
+        </div>
+        <div class="data-sources">
+          <strong style="color:var(--accent)">⚡ DATA SOURCES USED:</strong> TSMC monthly revenue reports &amp; Q4'25 earnings transcript, SK Hynix Q4'25 earnings &amp; HBM shipment data, Amazon/Alphabet/Microsoft/Meta Q4 capex actuals &amp; 2026 guidance, NVIDIA Q3 FY26 10-Q, JP Morgan GPU shipment projections, Foxconn rack shipment estimates, Polymarket prediction data, options implied volatility. <strong style="color:var(--text)">No analyst consensus was used as a primary input.</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div>BigPic Solutions Research &nbsp;·&nbsp; February 19, 2026</div>
+  <div style="margin-top:8px; font-size:10px; color:var(--text-muted); font-style:italic; max-width:600px; margin-left:auto; margin-right:auto;">This report is for informational purposes only and does not constitute investment advice. The author may hold positions in securities discussed. All investors should conduct their own due diligence and consult with a qualified financial advisor before making investment decisions. Past performance is not indicative of future results.</div>
+</footer>
+
+<script>
+// Tab navigation
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Share functionality
+const SHARE_URL = 'https://markets.bigpicsolutions.com/research/supplementary/NVDA-q1-26/nvidia-q4-independent-analysis.html';
+const SHARE_TEXT = 'NVDA Q4 FY2026 — Independent Analysis. Bottom-up supply-chain triangulation via TSMC, SK Hynix, and hyperscaler capex data.';
+
+function toggleShare() {
+  document.getElementById('shareDropdown').classList.toggle('open');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(SHARE_URL).then(() => {
+    const el = document.getElementById('shareCopied');
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 2000);
+  });
+}
+
+function shareToX() {
+  const url = 'https://x.com/intent/tweet?text=' + encodeURIComponent(SHARE_TEXT) + '&url=' + encodeURIComponent(SHARE_URL);
+  document.getElementById('shareX').href = url;
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.share-wrapper')) {
+    document.getElementById('shareDropdown').classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
