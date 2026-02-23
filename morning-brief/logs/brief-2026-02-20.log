@@ -81,3 +81,14 @@ Morning brief written to `/home/spicymeatball/projects/bigpic-markets/morning-br
   1 corrections written to 2026-02-20_Fri.md
 === Fact-check complete ===
 [2026-02-20 05:11:56] Running Claude [html-publish] (timeout: 900s)...
+All three steps complete:
+
+1. **HTML built** — `morning-brief/2026-02/2026-02-20_Fri.html` generated from the Friday markdown with full BigPic theme (deep navy background, gold accents, Space Grotesk/Newsreader fonts, scroll-reveal animations, backdrop-filter blur, scenario tabs, collapsible sources, all 9 sections).
+
+2. **Archive updated** — New entry added at the top of the February 2026 month group in `index.html` with the "Latest" badge moved from Thursday's entry to Friday's. Summary: *"HEAVY — Triple macro dump (GDP + Core PCE + Flash PMIs), monthly OpEx, Supreme Court tariff ruling pending, U.S.-Iran risk, gold $5,044 new highs"*.
+
+3. **Committed and pushed** — `f324871` on main → `Morning Brief — Friday 2026-02-20`.
+[2026-02-20 05:17:33] Claude [html-publish] finished successfully
+[2026-02-20 05:17:33] HTML generated: 56031 bytes
+[2026-02-20 05:17:33] === Morning Brief Complete ===
+[2026-02-20 05:17:33] Published: markets.bigpicsolutions.com/morning-brief/2026-02/2026-02-20_Fri.html
