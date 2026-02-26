@@ -2,21 +2,64 @@
 
 Step-by-step guide for publishing a new article to `research/supplementary/`.
 
+**Repo:** `/home/spicymeatball/projects/bigpic-markets/`
+**Live URL:** `https://markets.bigpicsolutions.com/`
+**Deploy:** GitHub Pages — push to `main` = live in seconds.
+
+---
+
+## Prerequisites
+
+The HTML report should already exist — either built by `/report` or carried over from the Capital research folder. The source thumbnail image (PNG) should be in the same directory as the HTML.
+
+**Source location (Capital research):** `~/Google-Drive/BigPic - Capital/Research/...`
+**Publish location (repo):** `~/projects/bigpic-markets/research/supplementary/{DIR}/`
+
+---
+
+## Quick Reference — Full Publish Sequence
+
+```bash
+# All commands run from ~/projects/bigpic-markets/
+
+# 1. Create directory
+mkdir -p research/supplementary/{DIR}
+
+# 2. Copy HTML
+cp "SOURCE_PATH/{article}.html" research/supplementary/{DIR}/{article}.html
+
+# 3. Generate thumbnail (1200x675, under 200KB)
+ffmpeg -y -i "SOURCE_PATH/{SOURCE}.png" -vf "scale=1200:675" -q:v 5 research/supplementary/{DIR}/{name}-thumb.jpg
+
+# 4. Edit the HTML — add OG meta tags, nav CSS, nav bar, share dropdown (see sections below)
+
+# 5. Edit index.html — add card at top of Supplementary Research grid
+
+# 6. Commit and deploy
+git add research/supplementary/{DIR}/{article}.html \
+       research/supplementary/{DIR}/{name}-thumb.jpg \
+       index.html
+git commit -m "Publish {Article Title}"
+git push origin main
+```
+
+Do NOT commit full-resolution source images (PNG). Only commit the HTML and thumb JPG.
+
 ---
 
 ## Directory Structure
 
 ```
 research/supplementary/{PROJECT_DIR}/
+├── {article}.html          # Self-contained article with inline CSS/JS (committed)
 ├── {name}-thumb.jpg        # 1200x675 web thumbnail (committed)
-├── {SOURCE}.png             # Full-res source image (NOT committed)
-├── [article].html           # Self-contained article with inline CSS/JS
-└── [PROJECT].md             # Internal project notes (committed)
+├── {SOURCE}.png            # Full-res source image (NOT committed)
+└── [notes].md              # Internal project notes (optional, committed)
 ```
 
 ---
 
-## 1. Thumbnail
+## Step 1: Thumbnail
 
 | Property   | Value                    |
 |------------|--------------------------|
@@ -25,12 +68,11 @@ research/supplementary/{PROJECT_DIR}/
 | Max size   | 200 KB                   |
 | Naming     | `{name}-thumb.jpg`       |
 
-Generate from a source PNG:
 ```bash
-ffmpeg -i SOURCE.png -vf "scale=1200:675" -q:v 3 {name}-thumb.jpg
+ffmpeg -y -i SOURCE.png -vf "scale=1200:675" -q:v 5 {name}-thumb.jpg
 ```
 
-Do NOT commit full-resolution source images.
+If over 200KB at `-q:v 5`, increase to `-q:v 6` or `-q:v 7`. If under 150KB at `-q:v 5`, try `-q:v 3` for better quality.
 
 ### Where thumbnails appear
 1. Index page card (`<img class="card-thumb">`)
@@ -39,16 +81,16 @@ Do NOT commit full-resolution source images.
 
 ---
 
-## 2. OG & Twitter Meta Tags
+## Step 2: OG & Twitter Meta Tags
 
-Add to `<head>`:
+Insert into `<head>`, after `<title>`:
 
 ```html
 <meta name="description" content="[1-2 sentence summary]">
 <meta property="og:title" content="[Article Title]">
 <meta property="og:description" content="[1-2 sentence hook]">
 <meta property="og:image" content="https://markets.bigpicsolutions.com/research/supplementary/{DIR}/{name}-thumb.jpg">
-<meta property="og:url" content="https://markets.bigpicsolutions.com/research/supplementary/{DIR}/[filename].html">
+<meta property="og:url" content="https://markets.bigpicsolutions.com/research/supplementary/{DIR}/{article}.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="BigPic Solutions Research">
 <meta name="twitter:card" content="summary_large_image">
@@ -57,19 +99,59 @@ Add to `<head>`:
 <meta name="twitter:image" content="https://markets.bigpicsolutions.com/research/supplementary/{DIR}/{name}-thumb.jpg">
 ```
 
-Base URL: `https://markets.bigpicsolutions.com`
+---
+
+## Step 3: Nav Bar + Share Dropdown CSS
+
+Insert before `</style>`. Adapt colors to match the article's palette:
+
+| Palette       | Nav Background              | Nav Border                          | Brand Gradient                              |
+|---------------|-----------------------------|-------------------------------------|---------------------------------------------|
+| Dark (default)| `rgba(10, 15, 26, 0.92)`   | `rgba(245, 158, 11, 0.08)`         | `linear-gradient(135deg, #e2e8f0, #f59e0b)` |
+| Parchment     | `rgba(26, 24, 18, 0.92)`   | `rgba(196, 154, 60, 0.08)`         | `linear-gradient(135deg, #fdf6ec, #e8b87d)` |
+| Space / deep  | `rgba(6, 8, 13, 0.92)`     | `rgba(249, 115, 22, 0.08)`         | `linear-gradient(135deg, #e2e8f0, #f97316)` |
+
+```css
+/* === SITE NAV === */
+.bigpic-nav{position:fixed;top:0;left:0;right:0;z-index:10000;background:rgba(10,15,26,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,158,11,0.08);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.bigpic-nav a{text-decoration:none}
+.bigpic-nav .nav-brand{font-weight:700;font-size:1rem;background:linear-gradient(135deg,#e2e8f0,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.bigpic-nav .nav-links{display:flex;align-items:center;gap:4px}
+.bigpic-nav .nav-link{color:#94a3b8;font-size:0.82rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:0.2s ease}
+.bigpic-nav .nav-link:hover{color:#e2e8f0;background:rgba(255,255,255,0.05)}
+.bigpic-nav .nav-dropdown{position:relative}
+.bigpic-nav .nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:rgba(10,15,26,0.96);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:6px;min-width:180px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.bigpic-nav .nav-dropdown:hover .nav-dropdown-menu{display:block}
+.bigpic-nav .nav-dropdown-menu a{display:block;color:#94a3b8;font-size:0.82rem;padding:8px 12px;border-radius:6px;transition:0.2s ease}
+.bigpic-nav .nav-dropdown-menu a:hover{color:#e2e8f0;background:rgba(255,255,255,0.05)}
+@media(max-width:600px){.bigpic-nav .nav-links{display:none}}
+
+/* === SHARE DROPDOWN === */
+.share-wrapper{position:fixed;top:4.2rem;right:1.5rem;z-index:9999}
+.share-btn{display:flex;align-items:center;gap:0.5rem;padding:0.55rem 1rem;background:rgba(10,15,26,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:#94a3b8;font-size:0.78rem;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:0.06em;cursor:pointer;backdrop-filter:blur(10px);transition:0.2s ease}
+.share-btn:hover{color:#e2e8f0;border-color:rgba(245,158,11,0.3)}
+.share-btn svg{width:14px;height:14px;stroke:#94a3b8;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:0.2s ease}
+.share-btn:hover svg{stroke:#f59e0b}
+.share-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:rgba(10,15,26,0.96);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:6px;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.share-dropdown.open{display:block}
+.share-option{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;background:none;border:none;color:#94a3b8;font-size:0.82rem;font-family:'Inter',sans-serif;cursor:pointer;border-radius:6px;transition:0.2s ease;text-decoration:none}
+.share-option:hover{color:#e2e8f0;background:rgba(255,255,255,0.05)}
+.share-option svg{width:15px;height:15px;flex-shrink:0}
+.link-icon{stroke:#94a3b8;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.x-logo{fill:#94a3b8}
+.share-option:hover .link-icon{stroke:#f59e0b}
+.share-option:hover .x-logo{fill:#f59e0b}
+.share-copied{display:none;padding:8px 12px;color:#10b981;font-size:0.8rem;text-align:center}
+.share-copied.show{display:block}
+```
+
+**Adapt accent color:** Replace `#f59e0b` (amber) with the article's accent color throughout if needed.
 
 ---
 
-## 3. Site Navigation
+## Step 4: Nav Bar + Share Dropdown HTML
 
-Add after `<body>`. Adapt `background` and `border-bottom` colors to the article palette:
-
-| Palette       | Background                  | Border                              |
-|---------------|-----------------------------|-------------------------------------|
-| Parchment     | `rgba(26, 24, 18, 0.92)`   | `rgba(196, 154, 60, 0.08)`         |
-| Dark          | `rgba(10, 15, 26, 0.92)`   | `rgba(232, 184, 125, 0.08)`        |
-| Space / deep  | `rgba(6, 8, 13, 0.92)`     | `rgba(249, 115, 22, 0.08)`         |
+Insert after `<body>`, before the first `<section>`:
 
 ```html
 <nav class="bigpic-nav">
@@ -92,20 +174,7 @@ Add after `<body>`. Adapt `background` and `border-bottom` colors to the article
     <a class="nav-link" href="../../../eagle-eye/">Eagle Eye</a>
   </div>
 </nav>
-```
 
-Rules:
-- Dropdown label must say **"Sectors"** (not "Markets")
-- Paths are relative from `research/supplementary/{DIR}/`
-- Height: 52px, `z-index: 10000`
-
----
-
-## 4. Share Dropdown
-
-Place after `</nav>`. Position: `fixed; top: 4.2rem; right: 1.5rem; z-index: 9999`.
-
-```html
 <div class="share-wrapper">
   <button class="share-btn" onclick="toggleShare()" aria-label="Share this article">
     <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
@@ -125,8 +194,8 @@ Place after `</nav>`. Position: `fixed; top: 4.2rem; right: 1.5rem; z-index: 999
 </div>
 
 <script>
-const SHARE_URL = '[CANONICAL_URL]';
-const SHARE_TEXT = '[ARTICLE_TITLE]. [OG_DESCRIPTION_HOOK]';
+const SHARE_URL = 'https://markets.bigpicsolutions.com/research/supplementary/{DIR}/{article}.html';
+const SHARE_TEXT = '[Article Title]. [1-2 sentence hook]';
 
 function toggleShare() {
   document.getElementById('shareDropdown').classList.toggle('open');
@@ -150,17 +219,23 @@ document.addEventListener('click', (e) => {
 </script>
 ```
 
-Adapt colors to article palette. **Critical:** include `.share-option svg { width: 15px; height: 15px; flex-shrink: 0; }` or icons render at full SVG size.
+**Replace placeholders:** `{DIR}`, `{article}`, `[Article Title]`, `[1-2 sentence hook]`.
+
+Rules:
+- Dropdown label must say **"Sectors"** (not "Markets")
+- Paths are relative from `research/supplementary/{DIR}/`
+- Nav height: 52px, `z-index: 10000`
+- Share button: `z-index: 9999`, positioned below nav
 
 ---
 
-## 5. Index Page Card
+## Step 5: Index Page Card
 
 Add to `index.html` at the **top** of the Supplementary Research `reports-grid` (newest first):
 
 ```html
 <div class="report-card">
-  <a href="research/supplementary/{DIR}/[filename].html">
+  <a href="research/supplementary/{DIR}/{article}.html">
     <img class="card-thumb" src="research/supplementary/{DIR}/{name}-thumb.jpg" alt="[Title]">
   </a>
   <div class="card-body">
@@ -169,7 +244,7 @@ Add to `index.html` at the **top** of the Supplementary Research `reports-grid` 
     <h3>[Short Title]</h3>
     <p class="description">[1-2 sentence description]</p>
     <div class="links">
-      <a href="research/supplementary/{DIR}/[filename].html">Interactive Report</a>
+      <a href="research/supplementary/{DIR}/{article}.html">Interactive Report</a>
     </div>
   </div>
 </div>
@@ -177,25 +252,28 @@ Add to `index.html` at the **top** of the Supplementary Research `reports-grid` 
 
 ---
 
-## 6. Commit & Deploy
+## Step 6: Commit & Deploy
 
 ```bash
+cd ~/projects/bigpic-markets
+
 git add research/supplementary/{DIR}/{article}.html \
        research/supplementary/{DIR}/{name}-thumb.jpg \
        index.html
-# Do NOT commit full-res source images
+
+git commit -m "Publish {Article Title}"
 git push origin main   # GitHub Pages deploys automatically
 ```
 
 ---
 
-## 7. Verify
+## Step 7: Verify
 
-- [ ] Article loads at live URL
-- [ ] Nav bar links work
+- [ ] Article loads at `https://markets.bigpicsolutions.com/research/supplementary/{DIR}/{article}.html`
+- [ ] Nav bar links work (sector dropdown, Eagle Eye)
 - [ ] Share dropdown works (copy link + share to X)
-- [ ] Index page shows card with thumbnail
-- [ ] Social preview renders (test with X Card Validator)
+- [ ] Index page shows card with thumbnail at top of Supplementary grid
+- [ ] Social preview renders (test with [X Card Validator](https://cards-dev.twitter.com/validator))
 
 ---
 
@@ -203,6 +281,8 @@ git push origin main   # GitHub Pages deploys automatically
 
 | Article | Directory | Date | Thumbnail |
 |---------|-----------|------|-----------|
+| The SaaSpocalypse Is Overdone | `SaaSpocalypse/` | Feb 26, 2026 | `saaspocalypse-thumb.jpg` |
+| The Crash, the Transition, and the Golden Age | `Citrini/` | Feb 23, 2026 | `citrini-thumb.jpg` |
 | Buy the Rumor, Sell the News | `Events-aapl-goog-nvda/` | Feb 23, 2026 | `events-thumb.jpg` |
 | Rocket Lab — Flight Profile | `RocketLab/` | Feb 22, 2026 | `rklb-thumb.jpg` |
 | NVDA Q4 FY2026 — Independent Analysis | `NVDA-q1-26/` | Feb 19, 2026 | `nvda-thumb.jpg` |
